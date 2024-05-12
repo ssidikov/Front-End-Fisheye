@@ -25,14 +25,16 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 100px;
     padding-left: 2vw;
     padding-right: 2vw;
+    margin: 0.5%;
 }
 
 main {
     padding-left: 2vw;
     padding-right: 2vw;
+    padding-bottom: 7vw;
 }
 
 a {
@@ -69,10 +71,6 @@ p {
     flex-direction: column;
 }
 
-.photographer_section article a img {
-    border-radius: 100px;
-}
-
 .photographer_section article h2 {
     color: var(--secondary-color);
     font-size: 36px;
@@ -85,10 +83,15 @@ p {
     height: 200px;
     width: 200px;
     object-fit: cover;
+    border-radius: 100px;
 }
 
 .location {
     color: var(--main-color);
+    font-size: 16px;
+}
+
+.tagline {
     font-size: 18px;
 }
 
