@@ -25,10 +25,11 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    /* height: 100px;
     padding-left: 2vw;
-    padding-right: 2vw;
+    padding-right: 2vw; */
     margin: 0.5%;
+    margin: 40px 100px;
 }
 
 main {
@@ -44,7 +45,7 @@ a {
 
 h1 {
     color: var(--main-color);
-    margin-right: 100px;
+    margin-right: 45px;
 }
 
 p {
@@ -53,14 +54,14 @@ p {
 
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 35px;
 }
 
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .photographer_section article a {
@@ -101,4 +102,42 @@ p {
 
 .fees {
     color: var(--grey);
+}
+
+@media screen and (max-width: 1024px) {
+
+    header {
+        margin: 40px 50px;
+    }
+
+    .logo {
+        margin-left: 100px;
+    }
+
+    .photographer_section {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 24px;
+        margin-right: 0;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .photographer_section {
+        grid-template-columns: 1fr;
+    }
+
 }
