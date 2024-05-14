@@ -1,12 +1,12 @@
-function photographerFactory (data) {
-  // catch data
+function photographerFactory(data) {
+  // catch data from json
   const { id, name, portrait, city, country, tagline, price } = data
-  // structure data for use in html
+  // create a new object with the data from json for use in html
   const picture = `assets/photographers/${portrait}`
   const location = `${city}, ${country}`
   const fees = `${price}€/jour`
 
-  function getUserCardDOM () {
+  function getUserCardDOM() {
     const article = document.createElement('article')
     // image
     const img = document.createElement('img')
@@ -14,35 +14,35 @@ function photographerFactory (data) {
     img.setAttribute('alt', name)
     // link
     const a = document.createElement('a')
-    a.setAttribute('href', './photographer.html' + `?id=${id}`)
+    a.setAttribute('href', `photographer.html?id=${id}`)
     // title
     const h2 = document.createElement('h2')
     h2.textContent = name
     // description
     const divDescription = document.createElement('div')
-    divDescription.setAttribute('class', 'description')
-    // city
+    divDescription.classList.add('description')
+    // location
     const divLocation = document.createElement('div')
     divLocation.setAttribute('class', 'location')
     divLocation.textContent = location
     // tagline
-    const divTagline = document.createElement('div')
-    divTagline.setAttribute('class', 'tagline')
-    divTagline.textContent = tagline
+    const divTagLine = document.createElement('div')
+    divTagLine.setAttribute('class', 'fees')
     // fees
     const divFees = document.createElement('div')
     divFees.setAttribute('class', 'fees')
     divFees.textContent = fees
 
-    // article structure
+    // append elements
     article.appendChild(a)
     a.appendChild(img)
     a.appendChild(h2)
     a.appendChild(divDescription)
     divDescription.appendChild(divLocation)
-    divDescription.appendChild(divTagline)
+    divDescription.appendChild(divTagLine)
     divDescription.appendChild(divFees)
     return article
   }
+
   return { name, picture, location, tagline, fees, getUserCardDOM }
 }
