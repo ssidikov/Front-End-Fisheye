@@ -1,9 +1,16 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+const modal = document.getElementById('contact_modal')
+
+function displayModal () {
+  modal.style.display = 'flex'
+  modal.setAttribute('aria-hidden', 'false')
+  modal.focus()
+}
+function closeModal () {
+  modal.style.display = 'none'
+  modal.setAttribute('aria-hidden', 'true')
 }
 
-function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-}
+modal.addEventListener('submit', (e) => {
+  e.preventDefault()
+  closeModal()
+})

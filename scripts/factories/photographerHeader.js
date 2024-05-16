@@ -1,47 +1,43 @@
-// Description: Factory function to create a header for the photographer page
-
+/* eslint-disable-next-line */
 function headerFactory(data) {
-  // Destructuring the data object
-  const { name, city, country, tagline, portrait } = data
-  // Creating the picture path
+  // catch data
+  const { name, portrait, city, country, tagline, price } = data
+  // structure data for use in html
   const picture = `./assets/photographers/${portrait}`
-  // Creating the location string
   const location = `${city}, ${country}`
-
-  // Creating the photographer-header card DOM
-  function getHeaderCardDom() {
-    // description article
+  function getheaderCardDOM () {
+    // description
     const article = document.createElement('article')
     article.setAttribute('class', 'description')
-    // full name of the photographer
+    // title
     const h2 = document.createElement('h2')
     h2.textContent = name
-    // location of the photographer
+    // city
     const divLocation = document.createElement('div')
     divLocation.setAttribute('class', 'location')
     divLocation.textContent = location
-    // tagline of the photographer
-    const pTagLine = document.createElement('p')
-    pTagLine.setAttribute('class', 'tagline')
-    pTagLine.textContent = tagline
-    // contact button
-    const button = document.createElement('button')
-    button.setAttribute('class', 'contact')
-    button.setAttribute('aria-label', 'Contactez-moi')
-    button.setAttribute('onclick', 'displayModal()')
-    button.textContent = 'Contactez-moi'
-    // portrait of the photographer
+    // tagline
+    const divTagline = document.createElement('div')
+    divTagline.setAttribute('class', 'tagline')
+    divTagline.textContent = tagline
+    // button
+    const btn = document.createElement('button')
+    btn.setAttribute('class', 'contact_button')
+    btn.setAttribute('onclick', 'displayModal()')
+    btn.textContent = 'Contactez moi'
+    // image
     const img = document.createElement('img')
     img.setAttribute('src', picture)
     img.setAttribute('alt', name)
-    // appending the elements to the DOM
+
+    // article structure
     document.querySelector('.photograph-header').appendChild(article)
     article.appendChild(h2)
     article.appendChild(divLocation)
-    article.appendChild(pTagLine)
-    document.querySelector('.photograph-header').appendChild(button)
+    article.appendChild(divTagline)
+    document.querySelector('.photograph-header').appendChild(btn)
     document.querySelector('.photograph-header').appendChild(img)
     return article
   }
-  return { name, location, tagline, picture, getHeaderCardDom}
+  return { name, picture, location, tagline, price, getheaderCardDOM }
 }
