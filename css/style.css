@@ -47,7 +47,7 @@ p {
 }
 
 .header {
-    padding: 40px 100px;
+    padding: 40px 50px;
 }
 
 .header .container {
@@ -68,7 +68,8 @@ p {
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    /* gap: 70px; */
+    gap: 80px 124px;
     margin-top: 5vw;
 }
 
