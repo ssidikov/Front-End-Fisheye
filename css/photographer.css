@@ -71,7 +71,7 @@
 /* Contact form */
 
 #contact_modal {
-    display: none;
+    /* display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -79,12 +79,23 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); */
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* padding: 2.4rem; */
+    overflow-y: scroll;
+    background-color: rgba(196, 196, 196, 0.4);
+    backdrop-filter: blur(2px);
 }
 
 /*modal*/
 
-.modal {
+/* .modal {
     border-radius: 5px;
     background-color: var(--hover-color);
     width: 50%;
@@ -97,12 +108,25 @@
     margin-top: 5vw;
     animation-name: modalLaunch;
     animation-duration: 0.8s;
+} */
+
+.modal {
+    margin: 5% auto;
+    width: 50%;
+    background-color: var(--hover-color);
+    border-radius: 5px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    border: none;
+    animation-name: modalLaunch;
+    animation-duration: 0.8s;
 }
 
 .modal-header {
-    /* position: relative;
-    justify-content: space-between;
-    width: 100%; */
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,9 +151,11 @@
     opacity: 1;
     cursor: pointer;
     transform: scale(0.7); */
+    width: 72px;
+    height: 72px;
     background: none;
     border: none;
-    font-size: 4.5em;
+    /* font-size: 4.5em; */
     cursor: pointer;
     color: #fff;
 }
@@ -154,7 +180,7 @@
 
 
 .modal-header h2 {
-    font-size: 64px;
+    font-size: clamp(1.5rem, 5vw, 4rem);
     font-weight: 400;
 }
 
@@ -167,7 +193,8 @@
 
 .form label {
     color: #312e2e;
-    font-size: 36px;
+    font-size: clamp(1rem, 3vw, 2.25rem);
+    margin: 15px 0 8px 0;
 }
 
 .form div {
@@ -183,7 +210,8 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
-    font-size: 36px;
+    font-size: clamp(1rem, 3vw, 2.25rem);
+    padding: 10px;
 }
 
 form textarea {
@@ -191,7 +219,12 @@ form textarea {
     height: 170px;
     border: none;
     border-radius: 5px;
-    font-size: 36px;
+    font-size: clamp(1rem, 3vw, 2.25rem);
+    padding: 10px;
+}
+
+form .contact_button:hover {
+    background-color: #901c1cd3;
 }
 
 /* Section media */
@@ -261,6 +294,11 @@ form textarea {
 
 @media screen and (max-width: 1024px) {
 
+    .closeModal {
+        width: 48px;
+        height: 48px;
+    }
+
     .photograph-header h2 {
         font-size: 48px;
     }
@@ -270,7 +308,16 @@ form textarea {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
+
+    .closeModal {
+        width: 36px;
+        height: 36px;
+    }
+
+    form input {
+        height: 48px;
+    }
 
     .photograph-header {
         flex-direction: column;
@@ -311,14 +358,91 @@ form textarea {
         margin-top: 60px;
     }
 
+    /* #contact_modal {
+        backdrop-filter: blur(5px);
+    } */
+
     .modal {
-        width: 100%;
-        margin: 22% auto 0 auto;
+        width: 90%;
+        margin-top: 5vh;
     }
 
     #sorting {
         max-width: 100%;
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    .photograph-header {
+        padding: 35px 20px;
+    }
+
+    .photograph-header h2 {
+        font-size: 36px;
+    }
+
+    .photograph-header img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .photograph-header .location {
+        font-size: 16px;
+    }
+
+    .photograph-header .tagline {
+        font-size: 14px;
+    }
+
+    .contact_button {
+        font-size: 16px;
+        padding: 8px;
+        width: 150px;
+        height: 50px;
+    }
+
+    .section-media {
+        gap: 30px;
+        padding: 35px 20px;
+    }
+
+    .card img {
+        height: 250px;
+    }
+
+    .card video {
+        height: 250px;
+    }
+
+    .card_description {
+        font-size: 18px;
+    }
+
+    .likeNbr {
+        font-size: 18px;
+    }
+
+    .card_description .like .heart {
+        font-size: 18px;
+    }
+
+    .modal {
+        width: 100%;
+        padding: 20px;
+    }
+
+    form input {
+        height: 48px;
+    }
+
+    form textarea {
+        height: 120px;
     }
 }
 

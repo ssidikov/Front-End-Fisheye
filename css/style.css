@@ -46,6 +46,10 @@ p {
     margin: 0;
 }
 
+button {
+    transition: 0.3s;
+}
+
 .header {
     padding: 40px 50px;
 }
@@ -115,10 +119,6 @@ p {
 
 @media screen and (max-width: 1024px) {
 
-    .logo {
-        margin-left: 5vw;
-    }
-
     .photographer_section {
         grid-template-columns: 1fr 1fr;
         gap: 50px;
@@ -139,11 +139,6 @@ p {
 
     .header .container {
         flex-direction: column;
-    }
-
-    .logo {
-        margin-left: 0;
-        margin-top: 4vw;
     }
 
     .photographer_section {
