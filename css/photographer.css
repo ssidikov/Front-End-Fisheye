@@ -87,6 +87,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    padding: 25px;
     /* padding: 2.4rem; */
     overflow-y: scroll;
     background-color: rgba(196, 196, 196, 0.4);
@@ -310,6 +311,10 @@ form .contact_button:hover {
 
 @media screen and (max-width: 800px) {
 
+    .header {
+        padding: 20px;
+    }
+
     .closeModal {
         width: 36px;
         height: 36px;
@@ -322,6 +327,7 @@ form .contact_button:hover {
     .photograph-header {
         flex-direction: column;
         gap: 35px;
+        padding: 35px 20px;
     }
 
     .photograph-header img {
@@ -354,8 +360,8 @@ form .contact_button:hover {
     .section-media {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 50px;
-        margin-top: 60px;
+        gap: 30px;
+        padding: 0 20px 35px;
     }
 
     /* #contact_modal {
@@ -363,7 +369,7 @@ form .contact_button:hover {
     } */
 
     .modal {
-        width: 90%;
+        width: 80%;
         margin-top: 5vh;
     }
 
@@ -371,16 +377,27 @@ form .contact_button:hover {
         max-width: 100%;
         justify-content: center;
     }
+
+    .contact_button {
+        font-size: 16px;
+        padding: 8px;
+        width: 150px;
+        height: 50px;
+    }
 }
 
 @media screen and (max-width: 480px) {
 
-    .header {
+    /* .header {
         padding: 20px;
-    }
+    } */
 
-    .photograph-header {
+    /* .photograph-header {
         padding: 35px 20px;
+    } */
+
+    #contact_modal {
+        padding: 10px;
     }
 
     .photograph-header h2 {
@@ -400,17 +417,12 @@ form .contact_button:hover {
         font-size: 14px;
     }
 
-    .contact_button {
+    /* .contact_button {
         font-size: 16px;
         padding: 8px;
         width: 150px;
         height: 50px;
-    }
-
-    .section-media {
-        gap: 30px;
-        padding: 35px 20px;
-    }
+    } */
 
     .card img {
         height: 250px;

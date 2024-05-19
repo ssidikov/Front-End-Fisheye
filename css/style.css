@@ -146,3 +146,43 @@ button {
     }
 
 }
+
+@media screen and (max-width: 480px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-right: 0;
+    }
+
+    .photographer_section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .photographer_section article img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .photographer_section article h2 {
+        font-size: 24px;
+    }
+
+    .location {
+        font-size: 14px;
+    }
+
+    .tagline {
+        font-size: 16px;
+    }
+
+    .fees {
+        font-size: 14px;
+    }
+
+
+}
