@@ -1,4 +1,5 @@
 // Description: This file contains the code to display the list of photographers on the homepage.
+import { photographerFactory } from '../factories/indexPhotographer.js'
 
 // The code is responsible for fetching the data from the JSON file and displaying it in the HTML.
 async function getPhotographers() {

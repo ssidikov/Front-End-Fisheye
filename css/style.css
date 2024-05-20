@@ -13,6 +13,7 @@
     --hover-color: #DB8876;
     --grey: #757575;
     --white: #fff;
+    --background-color: #fafafa
 }
 
 body {
@@ -77,6 +78,10 @@ button {
     margin-top: 5vw;
 }
 
+.photographer_section article {
+    text-align: center;
+}
+
 .photographer_section article a {
     justify-self: center;
     display: flex;
@@ -90,7 +95,7 @@ button {
     font-size: 36px;
     font-weight: 400;
     text-align: center;
-    margin-bottom: 0;
+    margin-top: 20px;
 }
 
 .photographer_section article img {
@@ -102,11 +107,12 @@ button {
 
 .location {
     color: var(--main-color);
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .tagline {
-    font-size: 18px;
+    font-size: 12px;
+    margin: 5px 0;
 }
 
 .tagline, .location, .fees {
@@ -115,6 +121,8 @@ button {
 
 .fees {
     color: var(--grey);
+    font-size: 11px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
@@ -143,6 +151,14 @@ button {
 
     .photographer_section {
         grid-template-columns: 1fr;
+    }
+
+    .photographer_section article {
+        background-color: var(--background-color);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
     }
 
 }
@@ -177,7 +193,7 @@ button {
     }
 
     .tagline {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .fees {

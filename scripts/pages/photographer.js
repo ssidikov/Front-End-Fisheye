@@ -1,5 +1,6 @@
 // Description: This file contains the code to display the photographer's information and their photos
-
+import { headerFactory } from '../factories/photographerHeader.js'
+import { mediaFactory } from '../factories/photographerMedia.js'
 // Fetch the data from the JSON file
 async function getData() {
   try {

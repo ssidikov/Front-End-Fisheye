@@ -1,5 +1,4 @@
-/* eslint-disable-next-line */
-function headerFactory(data) {
+export function headerFactory(data) {
   // catch data
   const { name, portrait, city, country, tagline, price } = data
   // structure data for use in html

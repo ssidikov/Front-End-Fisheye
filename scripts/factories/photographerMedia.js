@@ -1,5 +1,5 @@
 /* eslint-disable-next-line */
-function mediaFactory(data) {
+export function mediaFactory(data) {
   // catch data
   const { id, image, video, likes, title } = data
   // structure data for use in html

@@ -1,4 +1,4 @@
-function photographerFactory(data) {
+export function photographerFactory(data) {
   // catch data from json
   const { id, name, portrait, city, country, tagline, price } = data
   // create a new object with the data from json for use in html
@@ -27,7 +27,8 @@ function photographerFactory(data) {
     divLocation.textContent = location
     // tagline
     const divTagLine = document.createElement('div')
-    divTagLine.setAttribute('class', 'fees')
+    divTagLine.setAttribute('class', 'tagline')
+    divTagLine.textContent = tagline
     // fees
     const divFees = document.createElement('div')
     divFees.setAttribute('class', 'fees')
