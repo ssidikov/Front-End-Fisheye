@@ -1,5 +1,5 @@
 /* eslint-disable-next-line */
-export function mediaFactory(data) {
+function mediaFactory(data) {
   // catch data
   const { id, image, video, likes, title } = data
   // structure data for use in html
@@ -12,7 +12,8 @@ export function mediaFactory(data) {
     article.setAttribute('id', `${id}`)
     // link
     const a = document.createElement('a')
-    a.setAttribute('class', 'card_link')
+    a.setAttribute('class', 'lightbox_link')
+    a.setAttribute('onclick', `openLightbox(${index})`)
     a.setAttribute('href', '#')
     // image
     let imageOrVideo
@@ -45,6 +46,7 @@ export function mediaFactory(data) {
     heart.setAttribute('class', 'heart fa-solid fa-heart')
     heart.setAttribute('alt', 'like')
     heart.setAttribute('tabindex', '0')
+    heart.setAttribute('onclick', `addLikes(${index})`)
 
     // article structure
     article.appendChild(a)

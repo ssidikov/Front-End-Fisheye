@@ -1,9 +1,7 @@
 /* Photographer info header */
 
 .photograph-header {
-    background-color: #fafafa;
-    /* height: 300px; */
-    justify-self: center;
+    background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,18 +66,76 @@
     background-color: var(--hover-color);
 }
 
+/* sorting */
+
+#sorting {
+    display: flex;
+    max-width: 40%;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.dropdown.active .submenu {
+    display: block;
+    cursor: pointer;
+}
+
+.dropbtn {
+    background-color: #901c1c;
+    list-style: none;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    width: 170px;
+    height: 69px;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.dropbtn img,
+.dropdown img {
+    position: absolute;
+    right: 15%;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #901c1c;
+    min-width: 170px;
+    z-index: 1;
+    list-style: none;
+    top: 0;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu .sorting {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+}
+
+.submenu .last {
+    border-bottom: none;
+}
+
 /* Contact form */
 
 #contact_modal {
-    /* display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6); */
     display: none;
     position: fixed;
     z-index: 100;
@@ -88,28 +144,12 @@
     bottom: 0;
     left: 0;
     padding: 25px;
-    /* padding: 2.4rem; */
     overflow-y: scroll;
     background-color: rgba(196, 196, 196, 0.4);
-    backdrop-filter: blur(2px);
+    /* backdrop-filter: blur(2px); */
+    backdrop-filter: blur(2px) contrast(60%);
+    -webkit-backdrop-filter: blur(2px) contrast(60%);
 }
-
-/*modal*/
-
-/* .modal {
-    border-radius: 5px;
-    background-color: var(--hover-color);
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-    margin-top: 5vw;
-    animation-name: modalLaunch;
-    animation-duration: 0.8s;
-} */
 
 .modal {
     margin: 5% auto;
@@ -133,52 +173,14 @@
     align-items: center;
 }
 
-/* .modal header img {
-    cursor: pointer;
-    width: 42px;
-    height: 42px;
-} */
-
-/* .modal-title {
-    position: relative;
-} */
-
 .closeModal {
-    /* position: absolute;
-    right: -24px;
-    top: 7px;
-    width: 72px;
-    height: 72px;
-    opacity: 1;
-    cursor: pointer;
-    transform: scale(0.7); */
     width: 72px;
     height: 72px;
     background: none;
     border: none;
-    /* font-size: 4.5em; */
     cursor: pointer;
     color: #fff;
 }
-
-/* .closeModal:before,
-.closeModal:after { */
-/* position: absolute; */
-/* left: 15px; */
-/* content: " "; */
-/* height: 72px;
-    width: 3px; */
-/* background-color: var(--white); */
-/* } */
-
-/* .closeModal:before {
-    transform: rotate(45deg);
-}
-
-.closeModal:after {
-    transform: rotate(-45deg);
-} */
-
 
 .modal-header h2 {
     font-size: clamp(1.5rem, 5vw, 4rem);
@@ -206,22 +208,21 @@
     margin-bottom: 26px;
 }
 
-form input {
+form input,
+form textarea {
     width: 100%;
-    height: 68px;
     border: none;
     border-radius: 5px;
     font-size: clamp(1rem, 3vw, 2.25rem);
     padding: 10px;
 }
 
+form input {
+    height: 68px;
+}
+
 form textarea {
-    width: 100%;
     height: 170px;
-    border: none;
-    border-radius: 5px;
-    font-size: clamp(1rem, 3vw, 2.25rem);
-    padding: 10px;
 }
 
 form .contact_button:hover {
@@ -232,8 +233,7 @@ form .contact_button:hover {
 
 .section-media {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* gap: 70px; */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px 95px;
     margin-top: 60px;
     width: 100%;
@@ -245,21 +245,13 @@ form .contact_button:hover {
     flex-direction: column;
 }
 
-.card_link {
+.lightbox_link {
     width: 100%;
 }
 
-.card img {
-    object-fit: cover;
-    /* width: 350px; */
-    width: 100%;
-    height: 300px;
-    border-radius: 5px;
-}
-
+.card img,
 .card video {
     object-fit: cover;
-    /* width: 350px; */
     width: 100%;
     height: 300px;
     border-radius: 5px;
@@ -283,7 +275,6 @@ form .contact_button:hover {
 
 .card_description .like {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     text-align: right;
 }
@@ -291,6 +282,38 @@ form .contact_button:hover {
 .card_description .like .heart {
     margin-left: 5px;
     cursor: pointer;
+}
+
+/* price and likes */
+
+.fees-fixed {
+    position: fixed;
+    left: 75%;
+    right: 2%;
+    bottom: 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    background: var(--hover-color);
+    border-radius: 5px 5px 0 0;
+}
+
+.fees-fixed .inner {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 376px;
+    height: 70px;
+}
+
+.fees-fixed .inner .left {
+    display: flex;
+    align-items: center;
+}
+
+.icon-likes {
+    margin-left: 5px;
+    width: 21px;
+    height: 24px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -305,7 +328,7 @@ form .contact_button:hover {
     }
 
     .section-media {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -364,10 +387,6 @@ form .contact_button:hover {
         padding: 0 20px 35px;
     }
 
-    /* #contact_modal {
-        backdrop-filter: blur(5px);
-    } */
-
     .modal {
         width: 80%;
         margin-top: 5vh;
@@ -387,14 +406,6 @@ form .contact_button:hover {
 }
 
 @media screen and (max-width: 480px) {
-
-    /* .header {
-        padding: 20px;
-    } */
-
-    /* .photograph-header {
-        padding: 35px 20px;
-    } */
 
     #contact_modal {
         padding: 10px;
@@ -417,29 +428,13 @@ form .contact_button:hover {
         font-size: 14px;
     }
 
-    /* .contact_button {
-        font-size: 16px;
-        padding: 8px;
-        width: 150px;
-        height: 50px;
-    } */
-
-    .card img {
-        height: 250px;
-    }
-
+    .card img,
     .card video {
         height: 250px;
     }
 
-    .card_description {
-        font-size: 18px;
-    }
-
-    .likeNbr {
-        font-size: 18px;
-    }
-
+    .card_description,
+    .likeNbr,
     .card_description .like .heart {
         font-size: 18px;
     }

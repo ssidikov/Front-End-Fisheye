@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <title>Fisheye - photographe </title>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -23,7 +22,32 @@
   <main id="main">
     <div class="container">
       <section class="photograph-header"></section>
+      <div id="sorting">
+        <div>Trier par</div>
+        <div class="dropdown">
+          <button class="dropdown" role="button" aria-haspopup="listbox" aria-expanded="false" onclick="dropdown()">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="submenu" aria-label="submenu" role="listbox" aria-activedescendant="pop">
+            <li><a href="#" class="sorting" id="pop" onclick="sortBy('Popularité')" role="option"
+                aria-selected="true">Popularité
+                <i class="fa-solid fa-chevron-down"></i>
+              </a></li>
+            <li><a href="#" class="sorting" onclick="sortBy('Date')" role="option">Date</a></li>
+            <li><a href="#" class="sorting last" onclick="sortBy('Titre')" role="option">Titre</a></li>
+          </ul>
+        </div>
+      </div>
       <section class="section-media"></section>
+      <article class="fees-fixed">
+        <div class="inner">
+          <div class="left">
+            <div id="totalLikes"></div>
+            <i class="fa-solid fa-heart icon-likes" aria-hidden="true"></i>
+          </div>
+          <div class="right"></div>
+        </div>
+      </article>
     </div>
   </main>
   <div id="contact_modal" aria-labelledby="contactForm" role="dialog" aria-hidden="true" tabindex="-1">
@@ -47,7 +71,10 @@
       </form>
     </div>
   </div>
-  <script type="module" src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="/scripts/factories/photographerMedia.js"></script>
+  <script src="./scripts/factories/photographerHeader.js"></script>
+  <script src="./scripts/factories/lightboxFactory.js"></script>
   <script src="./scripts/utils/contactForm.js"></script>
 </body>
 

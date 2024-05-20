@@ -41,6 +41,7 @@ a {
 
 h1 {
     color: var(--main-color);
+    font-size: 2em;
 }
 
 p {
@@ -49,6 +50,7 @@ p {
 
 button {
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .header {
@@ -72,8 +74,7 @@ button {
 
 .photographer_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* gap: 70px; */
+    grid-template-columns: repeat(3, 1fr);
     gap: 80px 124px;
     margin-top: 5vw;
 }
@@ -83,18 +84,15 @@ button {
 }
 
 .photographer_section article a {
-    justify-self: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .photographer_section article h2 {
     color: var(--secondary-color);
-    font-size: 36px;
+    font-size: 1.5em;
     font-weight: 400;
-    text-align: center;
     margin-top: 20px;
 }
 
@@ -115,20 +113,20 @@ button {
     margin: 5px 0;
 }
 
-.tagline, .location, .fees {
+/* .tagline, .location, .fees {
     text-align: center;
-}
+} */
 
 .fees {
     color: var(--grey);
     font-size: 11px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 @media screen and (max-width: 1024px) {
 
     .photographer_section {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 50px;
     }
 
@@ -137,16 +135,16 @@ button {
 @media screen and (max-width: 768px) {
 
     .header {
-        padding: 40px 50px;
+        padding: 30px;
     }
 
     h1 {
-        font-size: 24px;
-        margin-right: 0;
+        font-size: 1.5em;
     }
 
     .header .container {
         flex-direction: column;
+        align-items: center;
     }
 
     .photographer_section {
@@ -170,12 +168,10 @@ button {
     }
 
     h1 {
-        font-size: 20px;
-        margin-right: 0;
+        font-size: 1.2em;
     }
 
     .photographer_section {
-        grid-template-columns: 1fr;
         gap: 30px;
     }
 
@@ -185,17 +181,11 @@ button {
     }
 
     .photographer_section article h2 {
-        font-size: 24px;
+        font-size: 1.5em;
     }
 
-    .location {
-        font-size: 14px;
-    }
-
-    .tagline {
-        font-size: 14px;
-    }
-
+    .location,
+    .tagline,
     .fees {
         font-size: 14px;
     }
