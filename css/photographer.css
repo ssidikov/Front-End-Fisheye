@@ -50,7 +50,7 @@
 
 .contact_button {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--white);
     padding: 11px;
     width: 170px;
@@ -74,6 +74,7 @@
     align-items: center;
     margin: 20px 0;
     font-size: 18px;
+    font-weight: 700;
 }
 
 .dropdown {
@@ -86,17 +87,19 @@
 .dropdown.active .submenu {
     display: block;
     cursor: pointer;
+    font-weight: 700;
 }
 
 .dropbtn {
     background-color: #901c1c;
     list-style: none;
     border-radius: 5px;
-    color: white;
+    color: var(--white);
     border: none;
     width: 170px;
     height: 69px;
     font-size: 18px;
+    font-weight: 700;
     text-align: left;
     padding-left: 20px;
 }
@@ -349,7 +352,7 @@ form .contact_button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     width: 80%;
 }
 
@@ -362,7 +365,7 @@ form .contact_button:hover {
 
 .img_viewer #lightbox_photo {
     object-fit: cover;
-    width: 920px;
+    width: 1050px;
     height: 80vh;
 }
 
@@ -411,6 +414,12 @@ form .contact_button:hover {
 
     .fees-fixed .inner {
         height: 30px;
+    }
+
+    .img_viewer #lightbox_photo {
+        object-fit: cover;
+        width: 780px;
+        height: 70vh;
     }
 }
 
