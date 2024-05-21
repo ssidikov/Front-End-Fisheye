@@ -313,12 +313,68 @@ form .contact_button:hover {
 .fees-fixed .inner .left {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .icon-likes {
-    margin-left: 5px;
     width: 21px;
     height: 24px;
+}
+
+/*lightbox*/
+.lightbox_link {
+    color: #901c1c;
+}
+
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+}
+
+.close {
+    width: 42px;
+    height: 42px;
+    align-self: flex-start;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.img_viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.img_viewer .viewer_left,
+.img_viewer .viewer_right {
+    padding: 0 40px;
+    width: 30px;
+    height: 48px;
+}
+
+.img_viewer #lightbox_photo {
+    object-fit: cover;
+    width: 920px;
+    height: 80vh;
+}
+
+.img_viewer .img_container {
+    margin-top: 40px;
+}
+
+.img_viewer .img_container .img_description {
+    color: #901c1c;
+    font-size: 24px;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -352,8 +408,6 @@ form .contact_button:hover {
     .icon-likes {
         width: 18px;
         height: 20px;
-        position: relative;
-        top: 1px;
     }
 
     .fees-fixed .inner {

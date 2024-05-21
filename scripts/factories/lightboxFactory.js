@@ -1,4 +1,3 @@
-/* eslint-disable-next-line */
 function LBFactory(data, name) {
   // catch data
   const { image, video, title } = data
@@ -13,9 +12,8 @@ function LBFactory(data, name) {
     imgViewer.setAttribute('aria-selected', 'true')
 
     // left arrow
-    const left = document.createElement('img')
-    left.setAttribute('class', 'viewer_left')
-    left.setAttribute('src', './assets/icons/left.svg')
+    const left = document.createElement('i')
+    left.setAttribute('class', 'fa-solid fa-angle-left viewer_left')
     left.setAttribute('onclick', 'previous()')
     left.setAttribute('alt', 'Photo precedente')
     left.setAttribute('tabindex', '0')
@@ -28,6 +26,12 @@ function LBFactory(data, name) {
       imageOrVideo.setAttribute('id', 'lightbox_photo')
       imageOrVideo.setAttribute('src', videoImg)
       imageOrVideo.setAttribute('alt', ' ')
+      imageOrVideo.setAttribute('controls', 'controls')
+      imageOrVideo.setAttribute('autoplay', 'autoplay')
+      imageOrVideo.setAttribute('loop', 'loop')
+      imageOrVideo.setAttribute('muted', 'muted')
+      imageOrVideo.setAttribute('playsinline', 'playsinline')
+      imageOrVideo.setAttribute('type', 'video/mp4');
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('id', 'lightbox_photo')
@@ -38,20 +42,22 @@ function LBFactory(data, name) {
     const imgDescription = document.createElement('div')
     imgDescription.setAttribute('class', 'img_description')
     imgDescription.textContent = title
-    // left arrow
-    const right = document.createElement('img')
-    right.setAttribute('class', 'viewer_right')
-    right.setAttribute('src', './assets/icons/right.svg')
+    // right arrow
+    const right = document.createElement('i')
+    right.setAttribute('class', 'fa-solid fa-angle-right viewer_right')
     right.setAttribute('onclick', 'next()')
     right.setAttribute('alt', '')
     right.setAttribute('tabindex', '0')
+    right.setAttribute('aria-hidden', 'true')
+    right.setAttribute('aria-label', 'Photo suivante')
     // close
-    const close = document.createElement('img')
-    close.setAttribute('class', 'close')
-    close.setAttribute('src', './assets/icons/close.svg')
+    const close = document.createElement('i')
+    close.setAttribute('class', 'fa-solid fa-xmark close')
     close.setAttribute('onclick', 'closeLightbox()')
-    close.setAttribute('alt', 'Photo suivante')
     close.setAttribute('tabindex', '0')
+    close.setAttribute('aria-hidden', 'true')
+    close.setAttribute('aria-label', 'Fermer la visionneuse')
+
 
     // LB structure
     imgViewer.appendChild(left)
