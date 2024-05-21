@@ -245,15 +245,6 @@ form .contact_button:hover {
     flex-direction: column;
 }
 
-#lightbox {
-    animation-name: modalLaunch;
-    animation-duration: 0.8s;
-}
-
-.lightbox_link {
-    width: 100%;
-}
-
 .card img,
 .card video {
     object-fit: cover;
@@ -338,6 +329,12 @@ form .contact_button:hover {
     width: 100%;
     overflow: hidden;
     background-color: rgb(255 255 255 / 90%);
+    animation-name: modalLaunch;
+    animation-duration: 0.8s;
+}
+
+.lightbox_link {
+    width: 100%;
 }
 
 .close {
