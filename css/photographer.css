@@ -245,6 +245,11 @@ form .contact_button:hover {
     flex-direction: column;
 }
 
+#lightbox {
+    animation-name: modalLaunch;
+    animation-duration: 0.8s;
+}
+
 .lightbox_link {
     width: 100%;
 }
@@ -301,7 +306,7 @@ form .contact_button:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 376px;
+    /* width: 376px; */
     height: 70px;
 }
 
@@ -329,6 +334,30 @@ form .contact_button:hover {
 
     .section-media {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fees-fixed {
+        padding: 10px;
+    }
+
+    .left,
+    .right {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .right {
+        margin-left: 10px;
+    }
+
+    .icon-likes {
+        width: 18px;
+        height: 20px;
+        position: relative;
+        top: 1px;
+    }
+
+    .fees-fixed .inner {
+        height: 30px;
     }
 }
 
@@ -402,6 +431,10 @@ form .contact_button:hover {
         padding: 8px;
         width: 150px;
         height: 50px;
+    }
+
+    .fees-fixed {
+        display: none;
     }
 }
 

@@ -14,7 +14,7 @@ function mediaFactory(data) {
     const a = document.createElement('a')
     a.setAttribute('class', 'lightbox_link')
     a.setAttribute('onclick', `openLightbox(${index})`)
-    a.setAttribute('href', '#')
+    a.setAttribute('href', '#r')
     // image
     let imageOrVideo
     if (video) {
