@@ -329,6 +329,7 @@ form .contact_button:hover {
 
 #lightbox {
     display: none;
+    justify-content: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -336,7 +337,7 @@ form .contact_button:hover {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: white;
+    background-color: rgb(255 255 255 / 90%);
 }
 
 .close {
@@ -352,6 +353,7 @@ form .contact_button:hover {
     justify-content: center;
     align-items: center;
     padding-top: 20px;
+    width: 80%;
 }
 
 .img_viewer .viewer_left,

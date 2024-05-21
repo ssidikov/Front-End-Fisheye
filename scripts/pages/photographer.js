@@ -135,10 +135,12 @@ function sortBy(type) {
 }
 
 // lightbox functions
-function openLightbox (index) {
+function openLightbox(index) {
+  const body = document.querySelector('body')
+  body.style.overflow = 'hidden'
   // open lightbox
   const lightbox = document.querySelector('#lightbox')
-  lightbox.style.display = 'block'
+  lightbox.style.display = 'flex'
   lightbox.setAttribute('aria-hidden', 'false')
   lightbox.focus()
   // get the right media with the index given by the display function
@@ -248,7 +250,9 @@ function previous () {
   openLightbox(previousPhoto)
 }
 
-function closeLightbox () {
+function closeLightbox() {
+  const body = document.querySelector('body')
+  body.style.overflow = 'auto'
   const lightbox = document.querySelector('#lightbox')
   lightbox.style.display = 'none'
   lightbox.setAttribute('aria-hidden', 'true')
