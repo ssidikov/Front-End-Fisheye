@@ -297,7 +297,7 @@
   max-width: 80%;
 }
 
-.fees__icon {
+.fees__icon-like {
   width: 21px;
   height: 24px;
 }
@@ -355,7 +355,7 @@
 }
 
 .contact-modal__title {
-  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 4rem);
   font-weight: 400;
 }
 
@@ -389,7 +389,7 @@
 
 .form__label {
   color: #312e2e;
-  font-size: clamp(1rem, 3vw, 2.25rem);
+  font-size: clamp(1rem, 2.5vw, 2.25rem);
   margin: 15px 0 8px 0;
 }
 
@@ -414,11 +414,192 @@
   background-color: #901c1cd3;
 }
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
 
-@media screen and (max-width: 800px) {}
+  .closeModal {
+    width: 48px;
+    height: 48px;
+  }
 
-@media screen and (max-width: 480px) {}
+  .form__input {
+    height: 60px;
+  }
+
+  .form__textarea {
+    height: 140px;
+  }
+
+  .description__name {
+    font-size: 48px;
+  }
+
+  .media {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fees {
+    padding: 10px;
+  }
+
+  .fees__inner {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .fees__right {
+    margin-left: 10px;
+  }
+
+  .fees__icon-like {
+    width: 18px;
+    height: 20px;
+  }
+
+  .fees__inner {
+    height: 30px;
+  }
+
+  .lightbox__viewer {
+    object-fit: cover;
+    width: 780px;
+    height: 70vh;
+  }
+
+
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    padding: 20px;
+  }
+
+  .photograph__main {
+    padding: 0 3vw;
+  }
+
+  .contact-modal__close {
+    width: 36px;
+    height: 36px;
+  }
+
+  .form__input {
+    height: 48px;
+  }
+
+  .photograph-header {
+    flex-direction: column;
+    gap: 35px;
+    padding: 35px 20px;
+  }
+
+  .photograph-header__image {
+    order: 1;
+  }
+
+  .photograph-header__description {
+    order: 2;
+  }
+
+  .description__name {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .description__location {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .description__tagline {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .photograph-header__contact-button {
+    order: 3;
+  }
+
+  .media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px 35px;
+  }
+
+  .contact-modal__inner {
+    width: 80%;
+    margin-top: 5vh;
+  }
+
+  .sorting {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .form__submit {
+    font-size: 16px;
+    padding: 8px;
+    width: 150px;
+    height: 50px;
+  }
+
+  .fees {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .description__name {
+    font-size: 36px;
+  }
+
+  .photograph-header__image {
+    height: 150px;
+    width: 150px;
+  }
+
+  .description__location {
+    font-size: 16px;
+  }
+
+  .description__tagline {
+    font-size: 14px;
+  }
+
+  .card__image,
+  .card__video {
+    height: 250px;
+  }
+
+  .card__description,
+  .like__number,
+  .like__icon {
+    font-size: 18px;
+  }
+
+  .contact-modal {
+    padding: 10px;
+  }
+
+  .contact-modal__inner {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form__input {
+    height: 48px;
+  }
+
+  .form__textarea {
+    height: 120px;
+  }
+
+  .form__submit {
+    font-size: 14px;
+    width: 120px;
+    height: 40px;
+  }
+}
 
 @keyframes modalLaunch {
   from {

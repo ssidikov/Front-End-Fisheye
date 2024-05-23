@@ -151,6 +151,7 @@ button {
 
     .photographers {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .photographer {
@@ -171,10 +172,6 @@ button {
 
     .header__title {
         font-size: 1.2em;
-    }
-
-    .photographers {
-        gap: 30px;
     }
 
     .photographer__image {
