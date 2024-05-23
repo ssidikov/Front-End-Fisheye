@@ -80,7 +80,7 @@ function lightboxFactory(data) {
     lightboxMediaContainer.appendChild(imageOrVideo)
     lightboxMediaContainer.appendChild(lightboxDescription)
     lightboxViewer.appendChild(rightArrow)
-    lightboxViewer.appendChild(closeLightbox)
+    lightboxViewer.appendChild(btnCloseLightbox)
 
     return lightboxViewer
 
