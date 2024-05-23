@@ -1,82 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
+<!-- Head -->
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>FishEye - photographe</title>
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <title>Fisheye - photographe </title>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css" type="text/css">
 </head>
 
 <body>
+  <!-- Header -->
   <header class="header">
-    <div class="container">
-      <a href="./index.html"><img src="assets/images/logo.png" class="logo" alt="logo" /></a>
+    <div class="header__container container">
+      <a href="index.html">
+        <img src="assets/logo/logo.png" alt="FishEye-logo" class="header__logo">
+      </a>
     </div>
   </header>
-  <main id="main">
-    <div class="container">
+  <!-- Main -->
+  <main id="main" class="photograph__main">
+    <div class="main__container container">
       <section class="photograph-header"></section>
-      <div id="sorting">
-        <div>Trier par</div>
-        <div class="dropdown">
-          <button class="dropbtn" role="button" aria-haspopup="listbox" aria-expanded="false" onclick="dropdown()">
-            <i class="fa-solid fa-chevron-down"></i>
+      <div class="sorting" id="sorting">
+        <div class="sorting__label">Trier par</div>
+        <div class="sorting__dropdown">
+          <button class="dropdown__button" role="button" aria-haspopup="listbox" aria-expanded="false"
+            onclick="dropdown()">Popularité</i>
           </button>
-          <ul class="submenu" aria-label="submenu" role="listbox" aria-activedescendant="pop">
-            <li><a href="#" class="sorting" id="pop" onclick="sortBy('Popularité')" role="option"
-                aria-selected="true">Popularité
-                <i class="fa-solid fa-chevron-down"></i>
-              </a></li>
-            <li><a href="#" class="sorting" onclick="sortBy('Date')" role="option">Date</a></li>
-            <li><a href="#" class="sorting last" onclick="sortBy('Titre')" role="option">Titre</a></li>
+          <ul class="dropdown__list" role="listbox" aria-hidden="true" aria-activedescendant="pop">
+            <li class="dropdown__item" role="option" onclick="sortBy('Popularité')" aria-selected="true">
+              <p>Popularité</p> <i class="dropdown__icon fa-solid fa-chevron-up"></i>
+            </li>
+            <li class="dropdown__item" role="option" onclick="sortBy('Date')">
+              <p>Date</p>
+            </li>
+            <li class="dropdown__item" role="option" onclick="sortBy('Titre')">
+              <p>Titre</p>
+            </li>
           </ul>
         </div>
       </div>
-      <section class="section-media"></section>
-      <article id="lightbox" aria-labelledby="img_viewer" role="dialog" aria-hidden="true" tabindex="-1"></article>
-      <article class="fees-fixed">
-        <div class="inner">
-          <div class="left">
-            <div id="totalLikes"></div>
-            <i class="fa-solid fa-heart icon-likes" aria-hidden="true"></i>
+      <section class="media"></section>
+      <article class="lightbox" id="lightbox" aria-labelledby="lightbox__viewer" role="dialog" aria-hidden="true"
+        tabindex="-1">
+      </article>
+      <article class="fees">
+        <div class="fees__inner">
+          <div class="fees__left">
+            <div id="totalLikes" class="fees__total-likes"></div>
+            <i class="fees__icon fa-solid fa-heart icon-likes" aria-hidden="true"></i>
           </div>
-          <div class="right"></div>
+          <div class="fees__right"></div>
         </div>
       </article>
     </div>
   </main>
-  <div id="contact_modal" aria-labelledby="contactForm" role="dialog" aria-hidden="true" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h2 class="modal-title">Contactez-moi</h2>
-        <img src="assets/close-modal.svg" alt="close-modal" class="closeModal" onclick="closeModal()">
+  <!-- Contact modal -->
+  <div class="contact-modal" id="contact-modal" aria-labelledby="contactForm" role="dialog" aria-hidden="true"
+    tabindex="-1">
+    <div class="contact-modal__inner modal">
+      <div class="contact-modal__header modal-header">
+        <h2 class="contact-modal__title modal-title">Contactez-moi</h2>
+        <img src="assets/icons/close-modal.svg" alt="close-modal" class="contact-modal__close closeModal"
+          onclick="closeContactForm()">
       </div>
-      <form class="form" aria-hidden="true">
-        <div role="document">
-          <label id="contactForm" for="name">Prénom</label>
-          <input type="text" name="name" id="name" />
-          <label for="last">Nom</label>
-          <input type="text" name="last" id="last" />
-          <label for="email">E-mail</label>
-          <input type="email" name="Email" id="email" />
-          <label for="message">Votre message</label>
-          <textarea id="message" name="message" rows="20" cols="61"></textarea>
+      <form action="index.html" method="get" class="contact-modal__form" aria-hidden="true">
+        <div class="form__content" role="document">
+          <label id="contactForm" for="name" class="form__label">Prénom</label>
+          <input type="text" name="name" id="name" class="form__input">
+          <label for="last" class="form__label">Nom</label>
+          <input type="text" name="last" id="last" class="form__input">
+          <label for="email" class="form__label">E-mail</label>
+          <input type="email" name="email" id="email" class="form__input">
+          <label for="message" class="form__label">Votre message</label>
+          <textarea name="message" id="message" class="form__textarea" rows="20" cols="61"></textarea>
         </div>
-        <button class="contact_button" type="submit">Envoyer</button>
+        <button class="form__submit" type="submit">Envoyer</button>
       </form>
     </div>
   </div>
-  <script src="scripts/pages/photographer.js"></script>
-  <script src="scripts/factories/photographerMedia.js"></script>
-  <script src="scripts/factories/photographerHeader.js"></script>
-  <script src="scripts/factories/lightboxFactory.js"></script>
+  <!-- Scripts -->
+  <script src="scripts/templates/photographerHeader.js"></script>
+  <script src="scripts/templates/photographerMedia.js"></script>
   <script src="scripts/utils/contactForm.js"></script>
+  <script src="scripts/templates/lightbox.js"></script>
+  <script src="scripts/pages/photographerPage.js"></script>
+
 </body>
 
 </html>
