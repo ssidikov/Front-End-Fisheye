@@ -114,7 +114,7 @@
 .dropdown__list {
   display: none;
   position: absolute;
-  background-color: #901c1c;
+  background-color: var(--main-color);
   min-width: 170px;
   z-index: 1;
   list-style: none;
@@ -213,14 +213,16 @@
   justify-content: center;
   position: fixed;
   z-index: 1;
+  overflow-y: scroll;
+  right: 0;
+  bottom: 0;
+  padding: 2.4rem;
   left: 0;
   top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
   background-color: rgb(255 255 255 / 90%);
   animation-name: modalLaunch;
   animation-duration: 0.8s;
+  transition: .2s;
 }
 
 .lightbox__viewer {
@@ -261,7 +263,7 @@
 }
 
 .lightbox__description {
-  color: #901c1c;
+  color: var(--main-color);
   font-size: 24px;
   margin-top: 20px;
 }
@@ -411,7 +413,7 @@
 }
 
 .form__submit:hover {
-  background-color: #901c1cd3;
+  background-color: #901C1Cd3;
 }
 
 @media screen and (max-width: 1024px) {
@@ -431,6 +433,19 @@
 
   .description__name {
     font-size: 48px;
+  }
+
+  .dropdown__button {
+    font-size: 14px;
+  }
+
+  .dropdown__item:first-child {
+    padding-top: 14px;
+  }
+
+  .dropdown__list {
+    min-width: 150px;
+    font-size: 14px;
   }
 
   .media {
@@ -458,7 +473,8 @@
     height: 30px;
   }
 
-  .lightbox__viewer {
+  .lightbox__image,
+  .lightbox__video {
     object-fit: cover;
     width: 780px;
     height: 70vh;
@@ -544,6 +560,13 @@
 
   .fees {
     display: none;
+  }
+
+  .lightbox__image,
+  .lightbox__video {
+    object-fit: cover;
+    width: 780px;
+    height: 70vh;
   }
 }
 

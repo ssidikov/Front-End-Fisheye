@@ -22,14 +22,14 @@ function lightboxFactory(data) {
     // Left arrow to navigate to the previous media
     const leftArrow = document.createElement('i')
     leftArrow.classList.add('lightbox__control', 'lightbox__control--left', 'fa-solid', 'fa-angle-left')
-    leftArrow.setAttribute('onclick', 'previous()')
+    leftArrow.addEventListener('click', () => previous())
     leftArrow.setAttribute('alt', 'Photo précédente')
     leftArrow.setAttribute('tabindex', '0')
 
     // Right arrow to navigate to the next media
     const rightArrow = document.createElement('i')
     rightArrow.classList.add('lightbox__control', 'lightbox__control--right', 'fa-solid', 'fa-angle-right')
-    rightArrow.setAttribute('onclick', 'next()')
+    rightArrow.addEventListener('click', () => next())
     rightArrow.setAttribute('alt', 'Photo suivante')
     rightArrow.setAttribute('tabindex', '0')
     rightArrow.setAttribute('aria-hidden', 'true')
@@ -66,12 +66,12 @@ function lightboxFactory(data) {
     lightboxDescription.textContent = title
 
     // Close the lightbox
-    const closeLightbox = document.createElement('i')
-    closeLightbox.classList.add('lightbox__close', 'fa-solid', 'fa-xmark')
-    closeLightbox.setAttribute('onclick', 'closeLightbox()')
-    closeLightbox.setAttribute('tabindex', '0')
-    closeLightbox.setAttribute('aria-hidden', 'true')
-    closeLightbox.setAttribute('aria-label', 'Fermer la visionneuse')
+    const btnCloseLightbox = document.createElement('i')
+    btnCloseLightbox.classList.add('lightbox__close', 'fa-solid', 'fa-xmark')
+    btnCloseLightbox.addEventListener('click', () => closeLightbox())
+    btnCloseLightbox.setAttribute('tabindex', '0')
+    btnCloseLightbox.setAttribute('aria-hidden', 'true')
+    btnCloseLightbox.setAttribute('aria-label', 'Fermer la visionneuse')
 
     // Add the elements to the lightbox
     lightbox.appendChild(lightboxViewer)

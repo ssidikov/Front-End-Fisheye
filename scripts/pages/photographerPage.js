@@ -1,5 +1,4 @@
 // Description: This file contains the code to display the photographer page.
-
 // The function getData() fetches the data of the photographers from the JSON file.
 async function getData() {
   try {
