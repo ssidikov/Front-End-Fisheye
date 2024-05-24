@@ -10,8 +10,8 @@ function lightboxFactory(data) {
     const body = document.querySelector('body')
     body.style.overflow = 'hidden';
 
-    const lightbox = document.querySelector('#lightbox')
-    lightbox.style.display = 'flex'
+    const lightbox = document.getElementById('lightbox')
+    lightbox.style.display = 'block'
     lightbox.setAttribute('aria-hidden', 'false')
     lightbox.focus();
 
@@ -19,18 +19,37 @@ function lightboxFactory(data) {
     lightboxViewer.classList.add('lightbox__viewer')
     lightboxViewer.setAttribute('aria-selected', 'true')
 
+    // Close the lightbox
+    const lightboxClose = document.createElement('button')
+    lightboxClose.classList.add('lightbox__close', 'lightbox__control')
+    lightboxClose.setAttribute('aria-label', 'Fermer la visionneuse')
+    lightboxClose.addEventListener('click', () => closeLightbox())
+
+    const btnCloseLightbox = document.createElement('i')
+    btnCloseLightbox.classList.add('lightbox__control--icon','fa-solid', 'fa-xmark')
+    btnCloseLightbox.setAttribute('tabindex', '0')
+    btnCloseLightbox.setAttribute('aria-hidden', 'true')
+    btnCloseLightbox.setAttribute('aria-label', 'Fermer la visionneuse')
+
     // Left arrow to navigate to the previous media
-    const leftArrow = document.createElement('i')
-    leftArrow.classList.add('lightbox__control', 'lightbox__control--left', 'fa-solid', 'fa-angle-left')
-    leftArrow.addEventListener('click', () => previous())
-    leftArrow.setAttribute('alt', 'Photo précédente')
-    leftArrow.setAttribute('tabindex', '0')
+    const navigateLeft = document.createElement('button')
+    navigateLeft.classList.add('lightbox__control')
+    navigateLeft.setAttribute('aria-label', 'Photo précédente')
+    navigateLeft.addEventListener('click', () => previous())
+    
+    const btnLeftArrow = document.createElement('i')
+    btnLeftArrow.classList.add('lightbox__control--icon', 'fa-solid', 'fa-angle-left')
+    btnLeftArrow.setAttribute('alt', 'Photo précédente')
+    btnLeftArrow.setAttribute('tabindex', '0')
 
     // Right arrow to navigate to the next media
+    const navigateRight = document.createElement('button')
+    navigateRight.classList.add('lightbox__control')
+    navigateRight.setAttribute('aria-label', 'Photo suivante')
+    navigateRight.addEventListener('click', () => next())
+
     const rightArrow = document.createElement('i')
-    rightArrow.classList.add('lightbox__control', 'lightbox__control--right', 'fa-solid', 'fa-angle-right')
-    rightArrow.addEventListener('click', () => next())
-    rightArrow.setAttribute('alt', 'Photo suivante')
+    rightArrow.classList.add('lightbox__control--icon', 'fa-solid', 'fa-angle-right')
     rightArrow.setAttribute('tabindex', '0')
     rightArrow.setAttribute('aria-hidden', 'true')
     rightArrow.setAttribute('aria-label', 'Photo suivante')
@@ -43,7 +62,7 @@ function lightboxFactory(data) {
     if (video) {
       imageOrVideo = document.createElement('video')
       imageOrVideo.setAttribute('id', 'lightbox_video')
-      imageOrVideo.classList.add('lightbox__video')
+      imageOrVideo.classList.add('lightbox__media')
       imageOrVideo.setAttribute('src', videoImg)
       imageOrVideo.setAttribute('alt', title)
       imageOrVideo.setAttribute('controls', 'controls')
@@ -55,32 +74,35 @@ function lightboxFactory(data) {
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('id', 'lightbox_photo')
-      imageOrVideo.classList.add('lightbox__image')
+      imageOrVideo.classList.add('lightbox__media')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.setAttribute('alt', title)
     }
 
     // Description of the media
-    const lightboxDescription = document.createElement('div')
+    const lightboxDescription = document.createElement('h3')
     lightboxDescription.classList.add('lightbox__description')
     lightboxDescription.textContent = title
 
-    // Close the lightbox
-    const btnCloseLightbox = document.createElement('i')
-    btnCloseLightbox.classList.add('lightbox__close', 'fa-solid', 'fa-xmark')
-    btnCloseLightbox.addEventListener('click', () => closeLightbox())
-    btnCloseLightbox.setAttribute('tabindex', '0')
-    btnCloseLightbox.setAttribute('aria-hidden', 'true')
-    btnCloseLightbox.setAttribute('aria-label', 'Fermer la visionneuse')
-
     // Add the elements to the lightbox
-    lightbox.appendChild(lightboxViewer)
-    lightboxViewer.appendChild(leftArrow)
-    lightboxViewer.appendChild(lightboxMediaContainer)
+    navigateLeft.appendChild(btnLeftArrow)
+    navigateRight.appendChild(rightArrow)
+    lightboxClose.appendChild(btnCloseLightbox)
     lightboxMediaContainer.appendChild(imageOrVideo)
     lightboxMediaContainer.appendChild(lightboxDescription)
-    lightboxViewer.appendChild(rightArrow)
-    lightboxViewer.appendChild(btnCloseLightbox)
+    lightboxViewer.appendChild(lightboxClose)
+    lightboxViewer.appendChild(navigateLeft)
+    lightboxViewer.appendChild(lightboxMediaContainer)
+    lightboxViewer.appendChild(navigateRight)
+    lightbox.appendChild(lightboxViewer)
+    
+    // lightbox.appendChild(lightboxViewer)
+    // lightboxViewer.appendChild(btnCloseLightbox)
+    // lightboxViewer.appendChild(leftArrow)
+    // lightboxViewer.appendChild(lightboxMediaContainer)
+    // lightboxMediaContainer.appendChild(imageOrVideo)
+    // lightboxMediaContainer.appendChild(lightboxDescription)
+    // lightboxViewer.appendChild(rightArrow)
 
     return lightboxViewer
 

@@ -13,7 +13,7 @@ function mediaFactory(data) {
     const a = document.createElement('a')
     a.classList.add('card_link')
     a.addEventListener('click', () => lunchLightbox(index));
-    a.setAttribute('href', '#r')
+    a.setAttribute('href', '#')
 
     let imageOrVideo
     if (video) {
@@ -31,9 +31,9 @@ function mediaFactory(data) {
     const cardDescription = document.createElement('div')
     cardDescription.classList.add('card__description')
 
-    const p = document.createElement('p')
-    p.textContent = title
-    p.classList.add('card__title')
+    const cardTitle = document.createElement('h3')
+    cardTitle.textContent = title
+    cardTitle.classList.add('card__title')
 
     const cardLike = document.createElement('div')
     cardLike.classList.add('card__like')
@@ -53,7 +53,7 @@ function mediaFactory(data) {
     article.appendChild(a)
     a.appendChild(imageOrVideo)
     article.appendChild(cardDescription)
-    cardDescription.appendChild(p)
+    cardDescription.appendChild(cardTitle)
     cardDescription.appendChild(cardLike)
     cardLike.appendChild(likeNumber)
     cardLike.appendChild(cardLikeIcon)

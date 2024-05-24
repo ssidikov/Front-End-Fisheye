@@ -1,5 +1,6 @@
 const modal = document.getElementById('contact-modal');
 const body = document.querySelector('body');
+const submit = document.getElementById('form__submit');
 
 function openContactForm() {
   body.style.overflow = 'hidden';
@@ -14,7 +15,7 @@ function closeContactForm() {
   modal.setAttribute('aria-hidden', 'true');
 };
 
-modal.addEventListener('submit', (e) => {
+submit.addEventListener('submit', (e) => {
   e.preventDefault();
   closeContactForm();
 });
