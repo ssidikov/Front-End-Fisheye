@@ -1,11 +1,5 @@
+@import url("css_reset.css");
 @import url("photographer.css");
-
-* {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
 
 :root {
     --main-color: #901C1C;
@@ -76,7 +70,7 @@ button {
 .main {
     padding-right: 2.25vw;
     padding-left: 2.25vw;
-    margin-bottom: 9.5vw;
+    padding-bottom: 9.5vw;
 }
 
 .photographers {
@@ -137,7 +131,7 @@ button {
     }
 
     .photographers {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 50px;
     }
 

@@ -95,12 +95,6 @@
 }
 
 .dropdown__button {
-  /* font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  color: white;
-  padding: 20px;
-  border-bottom: 1px solid white; */
   color: white;
   padding: 20px 25px;
   border-bottom: 1px solid white;
@@ -113,8 +107,6 @@
 }
 
 .dropdown__icon {
-  /* margin-left: 18px; */
-  /* margin-left: 10px; */
   float: right;
 }
 
@@ -140,16 +132,11 @@
   text-decoration: none;
   font-weight: 700;
   color: var(--white);
-  /* margin: 0 20px; */
   margin: 2px 25px;
-  /* padding: 20px 0; */
   padding: 14px 0;
   border-bottom: 1px solid white;
-  animation: rotateMenu 700ms ease-in-out forwards;
+  animation: rotateMenu 0.7s ease-in-out forwards;
   transform-origin: top center;
-  /* position: relative;
-  top: 2px;
-  left: 2px; */
 }
 
 .dropdown__item:first-child {
@@ -233,9 +220,7 @@
   padding: 2.4rem;
   overflow-y: scroll;
   background-color: rgb(255 255 255 / 90%);
-  animation-name: modalLaunch;
-  animation-duration: 0.8s;
-  transition: .2s;
+  animation: fadeIn 0.5s, scaleIn 0.5s;
 }
 
 .lightbox__viewer {
@@ -264,8 +249,6 @@
   top: 0;
   right: 0;
   cursor: pointer;
-  /* color: var(--color-primary);
-  font-size: 2em; */
 }
 
 .lightbox__media-container {
@@ -285,6 +268,7 @@
   font-weight: 400;
   color: var(--main-color);
   font-size: 1.5em;
+  margin-top: 12px;
 }
 
 /* Price and likes fixed */
@@ -355,8 +339,7 @@
   justify-content: space-between;
   margin: auto;
   border: none;
-  animation-name: modalLaunch;
-  animation-duration: 0.8s;
+  animation: fadeIn 0.5s, scaleIn 0.5s;
 }
 
 .modal {}
@@ -492,18 +475,12 @@
     height: 30px;
   }
 
-  .lightbox__image,
-  .lightbox__video {
-    object-fit: cover;
-    width: 780px;
+  .lightbox__media {
     height: 70vh;
   }
 
-  .lightbox__media {
-    height: 80vh;
-    width: 100%;
-    border-radius: 5px;
-    object-fit: cover;
+  .lightbox__close {
+    top: -20px;
   }
 
 
@@ -587,13 +564,6 @@
   .fees {
     display: none;
   }
-
-  .lightbox__image,
-  .lightbox__video {
-    object-fit: cover;
-    width: 780px;
-    height: 70vh;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -648,28 +618,24 @@
     width: 120px;
     height: 40px;
   }
+
+  .lightbox {
+    padding: 0;
+  }
+
+  .lightbox__viewer {
+    margin-top: 5vh;
+  }
+
+  .lightbox__control {
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+  }
 }
 
-@keyframes modalLaunch {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-} */
+/* Keyframes */
 
 @keyframes rotateMenu {
   0% {
@@ -682,5 +648,25 @@
 
   100% {
     transform: rotateX(0deg)
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
