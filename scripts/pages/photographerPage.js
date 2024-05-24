@@ -146,33 +146,71 @@ function lunchLightbox(index) {
 };
 
 // lightbox right arrow
-function next() {
-  let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-  const medias = JSON.parse(localStorage.getItem('medias'));
+// function next() {
+//   let currentIndex = parseInt(localStorage.getItem('currentIndex'));
+//   const medias = JSON.parse(localStorage.getItem('medias'));
 
-  // Calculate the next photo index and wrap around if necessary
-  const nextPhoto = (currentIndex + 1) % medias.length;
+//   // Calculate the next photo index and wrap around if necessary
+//   const nextPhoto = (currentIndex + 1) % medias.length;
   
-  // Update the currentIndex in localStorage
-  localStorage.setItem('currentIndex', nextPhoto);
+//   // Update the currentIndex in localStorage
+//   localStorage.setItem('currentIndex', nextPhoto);
 
-  // Open the lightbox with the next photo
-  lunchLightbox(nextPhoto);
+//   // Open the lightbox with the next photo
+//   lunchLightbox(nextPhoto);
+// }
+
+// // lightbox left arrow
+// function previous() {
+//   let currentIndex = parseInt(localStorage.getItem('currentIndex'));
+//   const medias = JSON.parse(localStorage.getItem('medias'));
+
+//   // Calculate the previous photo index and wrap around if necessary
+//   const previousPhoto = (currentIndex - 1 + medias.length) % medias.length;
+  
+//   // Update the currentIndex in localStorage
+//   localStorage.setItem('currentIndex', previousPhoto);
+
+//   // Open the lightbox with the previous photo
+//   lunchLightbox(previousPhoto);
+// }
+
+function next() {
+    let currentIndex = parseInt(localStorage.getItem('currentIndex'));
+    const medias = JSON.parse(localStorage.getItem('medias'));
+
+    // Calculate the next photo index and wrap around if necessary
+    let nextPhoto;
+    if (currentIndex < medias.length - 1) {
+        nextPhoto = currentIndex + 1;
+    } else {
+        nextPhoto = 0; // wrap around to the first photo
+    }
+    
+    // Update the currentIndex in localStorage
+    localStorage.setItem('currentIndex', nextPhoto);
+
+    // Open the lightbox with the next photo
+    lunchLightbox(nextPhoto);
 }
 
-// lightbox left arrow
 function previous() {
-  let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-  const medias = JSON.parse(localStorage.getItem('medias'));
+    let currentIndex = parseInt(localStorage.getItem('currentIndex'));
+    const medias = JSON.parse(localStorage.getItem('medias'));
 
-  // Calculate the previous photo index and wrap around if necessary
-  const previousPhoto = (currentIndex - 1 + medias.length) % medias.length;
-  
-  // Update the currentIndex in localStorage
-  localStorage.setItem('currentIndex', previousPhoto);
+    // Calculate the previous photo index and wrap around if necessary
+    let previousPhoto;
+    if (currentIndex > 0) {
+        previousPhoto = currentIndex - 1;
+    } else {
+        previousPhoto = medias.length - 1; // wrap around to the last photo
+    }
 
-  // Open the lightbox with the previous photo
-  lunchLightbox(previousPhoto);
+    // Update the currentIndex in localStorage
+    localStorage.setItem('currentIndex', previousPhoto);
+
+    // Open the lightbox with the previous photo
+    lunchLightbox(previousPhoto);
 }
 
 function closeLightbox() {
