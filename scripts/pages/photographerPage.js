@@ -129,7 +129,7 @@ function sortBy(type) {
 };
 
 // Lightbox for media
-function lunchLightbox(index) {
+function launchLightbox(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
   const photographerData = localStorage.getItem('photographerData');
   const mediaLightBox = media[index];
@@ -145,73 +145,26 @@ function lunchLightbox(index) {
   lightbox.appendChild(getLightboxDOM);
 };
 
-// lightbox right arrow
-// function next() {
-//   let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-//   const medias = JSON.parse(localStorage.getItem('medias'));
-
-//   // Calculate the next photo index and wrap around if necessary
-//   const nextPhoto = (currentIndex + 1) % medias.length;
-  
-//   // Update the currentIndex in localStorage
-//   localStorage.setItem('currentIndex', nextPhoto);
-
-//   // Open the lightbox with the next photo
-//   lunchLightbox(nextPhoto);
-// }
-
-// // lightbox left arrow
-// function previous() {
-//   let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-//   const medias = JSON.parse(localStorage.getItem('medias'));
-
-//   // Calculate the previous photo index and wrap around if necessary
-//   const previousPhoto = (currentIndex - 1 + medias.length) % medias.length;
-  
-//   // Update the currentIndex in localStorage
-//   localStorage.setItem('currentIndex', previousPhoto);
-
-//   // Open the lightbox with the previous photo
-//   lunchLightbox(previousPhoto);
-// }
-
-function next() {
-    let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-    const medias = JSON.parse(localStorage.getItem('medias'));
-
-    // Calculate the next photo index and wrap around if necessary
-    let nextPhoto;
-    if (currentIndex < medias.length - 1) {
-        nextPhoto = currentIndex + 1;
-    } else {
-        nextPhoto = 0; // wrap around to the first photo
-    }
-    
-    // Update the currentIndex in localStorage
-    localStorage.setItem('currentIndex', nextPhoto);
-
-    // Open the lightbox with the next photo
-    lunchLightbox(nextPhoto);
+function next () {
+  let nextPhoto = parseInt(localStorage.getItem('currentMedia')) + 1
+  localStorage.setItem('currentMedia', nextPhoto)
+  const media = JSON.parse(localStorage.getItem('medias'))
+  if (nextPhoto >= media.length) {
+    nextPhoto = 0
+  }
+  launchLightbox(nextPhoto)
+}
+// lightbox left arrow
+function previous () {
+  let previousPhoto = parseInt(localStorage.getItem('currentMedia')) - 1
+  localStorage.setItem('currentMedia', previousPhoto)
+  const medias = JSON.parse(localStorage.getItem('medias'))
+  if (previousPhoto < 0) {
+    previousPhoto = medias.length - 1
+  }
+  launchLightbox(previousPhoto)
 }
 
-function previous() {
-    let currentIndex = parseInt(localStorage.getItem('currentIndex'));
-    const medias = JSON.parse(localStorage.getItem('medias'));
-
-    // Calculate the previous photo index and wrap around if necessary
-    let previousPhoto;
-    if (currentIndex > 0) {
-        previousPhoto = currentIndex - 1;
-    } else {
-        previousPhoto = medias.length - 1; // wrap around to the last photo
-    }
-
-    // Update the currentIndex in localStorage
-    localStorage.setItem('currentIndex', previousPhoto);
-
-    // Open the lightbox with the previous photo
-    lunchLightbox(previousPhoto);
-}
 
 function closeLightbox() {
   const body = document.querySelector('body')

@@ -12,7 +12,7 @@ function mediaFactory(data) {
 
     const a = document.createElement('a')
     a.classList.add('card_link')
-    a.addEventListener('click', () => lunchLightbox(index));
+    a.addEventListener('click', () => launchLightbox(index));
     a.setAttribute('href', '#')
 
     let imageOrVideo
