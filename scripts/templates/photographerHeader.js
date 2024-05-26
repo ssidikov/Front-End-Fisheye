@@ -28,7 +28,7 @@ function photographerHeader(data) {
     const contactButton = document.createElement('button');
     contactButton.textContent = 'Contactez-moi';
     contactButton.classList.add('photograph-header__contact-button');
-    contactButton.setAttribute('aria-labelledby', 'Contactez ' + name);
+    contactButton.setAttribute('aria-label', 'Contactez ' + name);
     contactButton.setAttribute('role', 'button');
     contactButton.setAttribute('onclick', 'openContactForm()');
 

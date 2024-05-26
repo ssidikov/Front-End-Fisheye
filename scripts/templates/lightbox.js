@@ -70,7 +70,6 @@ function lightboxFactory(data) {
       imageOrVideo.setAttribute('autoplay', 'autoplay')
       imageOrVideo.setAttribute('loop', 'loop')
       imageOrVideo.setAttribute('muted', 'muted')
-      imageOrVideo.setAttribute('playsinline', 'playsinline')
       imageOrVideo.setAttribute('type', 'video/mp4');
     } else {
       imageOrVideo = document.createElement('img')
@@ -96,14 +95,6 @@ function lightboxFactory(data) {
     lightboxViewer.appendChild(lightboxMediaContainer)
     lightboxViewer.appendChild(navigateRight)
     lightbox.appendChild(lightboxViewer)
-    
-    // lightbox.appendChild(lightboxViewer)
-    // lightboxViewer.appendChild(btnCloseLightbox)
-    // lightboxViewer.appendChild(leftArrow)
-    // lightboxViewer.appendChild(lightboxMediaContainer)
-    // lightboxMediaContainer.appendChild(imageOrVideo)
-    // lightboxMediaContainer.appendChild(lightboxDescription)
-    // lightboxViewer.appendChild(rightArrow)
 
     return lightboxViewer
 
