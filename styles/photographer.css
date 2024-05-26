@@ -460,10 +460,18 @@
 
 @media screen and (max-width: 1024px) {
 
-  .photograph-header__contact-button,
-  .dropdown__button {
+  .photograph-header__contact-button {
     height: 50px;
     width: 150px;
+  }
+
+  .dropdown__button {
+    height: 50px;
+  }
+
+  .dropdown__button,
+  .dropdown__list {
+    width: 170px;
   }
 
   .contact-modal__close {
@@ -485,11 +493,6 @@
 
   .dropdown__item:first-child {
     padding-top: 14px;
-  }
-
-  .dropdown__list {
-    /* max-width: 150px; */
-    /* font-size: 14px; */
   }
 
   .media {
