@@ -1,9 +1,10 @@
 function mediaFactory(data) {
 
-  const { id, image, video, likes, title } = data;
+  const { id, image, video, poster, likes, title } = data;
 
   const picture = `assets/media/${image}`;
   const videoImg = `assets/media/${video}`;
+  const posterImg = `assets/media/${poster}`;
 
   function getMediaCardDOM(index) {
     const article = document.createElement('article')
@@ -19,6 +20,7 @@ function mediaFactory(data) {
     if (video) {
       imageOrVideo = document.createElement('video')
       imageOrVideo.setAttribute('src', videoImg)
+      imageOrVideo.setAttribute('poster', posterImg)
       imageOrVideo.classList.add('card__video')
       imageOrVideo.setAttribute('alt', title)
     } else {
@@ -46,7 +48,8 @@ function mediaFactory(data) {
 
     const cardLikeIcon = document.createElement('i')
     cardLikeIcon.classList.add('like__icon', 'fa-solid', 'fa-heart')
-    cardLikeIcon.setAttribute('alt', 'like')
+    cardLikeIcon.setAttribute('alt', 'likes')
+    cardLikeIcon.setAttribute('aria-label', 'likes')
     cardLikeIcon.setAttribute('tabindex', '0')
     cardLikeIcon.setAttribute('onclick', `addLikes(${index})`)
 

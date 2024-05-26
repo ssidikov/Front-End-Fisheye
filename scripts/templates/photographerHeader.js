@@ -13,14 +13,8 @@ function photographerHeader(data) {
     const article = document.createElement('article');
     article.classList.add('photograph-header__description');
 
-    // Name of the photographer
-    const h2 = document.createElement('h2');
-    h2.textContent = name;
-    h2.classList.add('description__name');
-    h2.setAttribute('aria-label', name);
-
     // Location of the photographer
-    const locationElement = document.createElement('h3');
+    const locationElement = document.createElement('h2');
     locationElement.textContent = location;
     locationElement.classList.add('description__location');
 
@@ -34,9 +28,14 @@ function photographerHeader(data) {
     const contactButton = document.createElement('button');
     contactButton.textContent = 'Contactez-moi';
     contactButton.classList.add('photograph-header__contact-button');
-    contactButton.setAttribute('aria-label', 'Contactez ' + name);
+    contactButton.setAttribute('aria-labelledby', 'Contactez ' + name);
     contactButton.setAttribute('role', 'button');
     contactButton.setAttribute('onclick', 'openContactForm()');
+
+    // contact name of the photographer in the modal
+    const contactName = document.querySelector('.contact-modal__title');
+    contactName.innerHTML = `Contactez-moi<br>${name}`;
+    contactName.setAttribute('aria-label', name);
 
     // Portrait of the photographer
     const img = document.createElement('img');
@@ -45,14 +44,22 @@ function photographerHeader(data) {
     img.setAttribute('aria-label', 'Portrait de ' + name);
     img.classList.add('photograph-header__image');
 
+    // Name of the photographer
+    const nameElement = document.createElement('h2');
+    nameElement.textContent = name;
+    nameElement.classList.add('description__name');
+    nameElement.setAttribute('aria-label', name);
+
     // Add the elements to the article
     const sectionPhotographHeader = document.querySelector('.photograph-header');
     sectionPhotographHeader.appendChild(article);
-    article.appendChild(h2);
+    article.appendChild(nameElement);
     article.appendChild(locationElement);
     article.appendChild(taglineElement);
     sectionPhotographHeader.appendChild(contactButton);
     sectionPhotographHeader.appendChild(img);
+    
+    // document.querySelector('.contact-modal__title').textContent = `Contactez-moi ${name}`;
     
     return article;
 

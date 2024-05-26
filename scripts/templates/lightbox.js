@@ -18,6 +18,7 @@ function lightboxFactory(data) {
     const lightboxViewer = document.createElement('div')
     lightboxViewer.classList.add('lightbox__viewer')
     lightboxViewer.setAttribute('aria-selected', 'true')
+    lightboxViewer.setAttribute('aria-label', 'Vue rapprochée de l\'image')
 
     // Close the lightbox
     const lightboxClose = document.createElement('button')

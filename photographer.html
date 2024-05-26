@@ -17,7 +17,7 @@
   <header class="header">
     <div class="header__container container">
       <a href="index.html">
-        <img src="assets/logo/logo.png" alt="FishEye-logo" class="header__logo">
+        <img src="assets/logo/logo.png" alt="Fisheye Home page" class="header__logo">
       </a>
     </div>
   </header>
@@ -26,10 +26,10 @@
     <div class="main__container container">
       <section class="photograph-header"></section>
       <div class="sorting" id="sorting">
-        <div class="sorting__label">Trier par</div>
+        <label class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
           <button class="dropdown__button" role="button" aria-haspopup="listbox" aria-expanded="false"
-            onclick="dropdown()">Popularité</i>
+            aria-labelledby="pop" onclick="dropdown()">Popularité</i>
           </button>
           <ul class="dropdown__list" role="listbox" aria-hidden="true" aria-activedescendant="pop">
             <li class="dropdown__item" role="option" onclick="sortBy('Popularité')" aria-selected="true">
@@ -51,7 +51,7 @@
       <article class="fees">
         <div class="fees__inner">
           <div class="fees__left">
-            <div id="totalLikes" class="fees__total-likes"></div>
+            <p id="totalLikes" class="fees__total-likes"></p>
             <i class="fees__icon-like fa-solid fa-heart" aria-hidden="true"></i>
           </div>
           <div class="fees__right"></div>
@@ -64,7 +64,7 @@
     tabindex="-1">
     <div class="contact-modal__inner modal">
       <div class="contact-modal__header modal-header">
-        <h2 class="contact-modal__title modal-title">Contactez-moi</h2>
+        <h2 class="contact-modal__title modal-title"></h2>
         <img src="assets/icons/close-modal.svg" alt="close-modal" class="contact-modal__close closeModal"
           onclick="closeContactForm()">
       </div>
@@ -73,19 +73,20 @@
         <div class="form__content" role="document">
           <div class="form__data" data-error-visible="false">
             <label for="name" class="form__label">Prénom</label>
-            <input type="text" name="name" id="name" class="form__input">
+            <input type="text" name="name" id="name" placeholder="Prénom" class="form__input">
           </div>
           <div class="form__data" data-error-visible="false">
             <label for="lastName" class="form__label">Nom</label>
-            <input type="text" name="lastName" id="lastName" class="form__input">
+            <input type="text" name="lastName" id="lastName" placeholder="Nom" class="form__input">
           </div>
           <div class="form__data" data-error-visible="false">
             <label for="email" class="form__label">E-mail</label>
-            <input type="email" name="email" id="email" class="form__input">
+            <input type="email" name="email" id="email" placeholder="E-mail" class="form__input">
           </div>
           <div class="form__data" data-error-visible="false">
             <label for="message" class="form__label">Votre message</label>
-            <textarea name="message" id="message" class="form__textarea" rows="20" cols="61"></textarea>
+            <textarea name="message" id="message" placeholder="Votre message" class="form__textarea" rows="20"
+              cols="61"></textarea>
           </div>
           <button class="form__submit" type="submit">Envoyer</button>
         </div>

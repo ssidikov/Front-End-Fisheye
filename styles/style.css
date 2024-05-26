@@ -63,7 +63,7 @@ button {
 
 .header__title {
     color: var(--main-color);
-    font-size: 2.25em;
+    font-size: clamp(1.2rem, 0.9rem + 1.5vw, 2.25rem);
     font-weight: 400;
 }
 
@@ -100,7 +100,7 @@ button {
 
 .photographer__name {
     color: var(--secondary-color);
-    font-size: 2.25em;
+    font-size: clamp(1.8rem, 1.2857rem + 1.0714vw, 2.25rem);
     font-weight: 400;
     margin-top: 20px;
 }
@@ -118,7 +118,7 @@ button {
 
 .photographer__price {
     color: var(--grey);
-    font-size: 11px;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -141,10 +141,6 @@ button {
 
     .header {
         padding: 30px;
-    }
-
-    .header__title {
-        font-size: 1.5em;
     }
 
     .header__container {
@@ -173,23 +169,9 @@ button {
         padding: 20px;
     }
 
-    .header__title {
-        font-size: 1.2em;
-    }
-
     .photographer__image {
         height: 150px;
         width: 150px;
-    }
-
-    .photographer__name {
-        font-size: 1.5em;
-    }
-
-    .photographer__location,
-    .photographer__tagline,
-    .photographer__price {
-        font-size: 14px;
     }
 
 }
