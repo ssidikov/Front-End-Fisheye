@@ -406,7 +406,8 @@
   margin-top: 4px;
   text-align: left;
   opacity: 0;
-  transition: 0.3s;
+  animation: fadeIn 0.5s, scaleIn 0.5s;
+  /* transition: 0.3s; */
 }
 
 .form__data[data-error-visible="true"]::after {

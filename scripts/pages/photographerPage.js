@@ -1,8 +1,8 @@
 // Description: This file contains the code to display the photographer page.
 
-import { photographerHeader } from '../templates/photographerHeader.js';
-import { mediaFactory } from '../templates/mediaCard.js';
-import { lightboxFactory } from '../templates/lightbox.js';
+import { photographerHeader } from '../factories/photographerHeader.js';
+import { mediaFactory } from '../factories/mediaFactory.js';
+import { lightboxFactory } from '../factories/lightboxFactory.js';
 
 // The function getData() fetches the data of the photographers from the JSON file.
 async function getData() {

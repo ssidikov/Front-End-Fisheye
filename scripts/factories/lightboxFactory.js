@@ -1,22 +1,24 @@
+// Description: Factory function to create the lightbox for the media
+
 import { closeLightbox, next, previous } from '../pages/photographerPage.js'
 
 export function lightboxFactory(data) {
-
+  // Destructuring the data
   const { image, video, title } = data;
-
+  // Path to the media
   const picture = `assets/media/${image}`;
   const videoImg = `assets/media/${video}`;
 
   function getLightboxDOM() {
-    
+   // Prevent scrolling when the lightbox is open 
     const body = document.querySelector('body')
     body.style.overflow = 'hidden';
-
+    // Create the lightbox
     const lightbox = document.getElementById('lightbox')
     lightbox.style.display = 'block'
     lightbox.setAttribute('aria-hidden', 'false')
     lightbox.focus();
-
+    
     const lightboxViewer = document.createElement('div')
     lightboxViewer.classList.add('lightbox__viewer')
     lightboxViewer.setAttribute('aria-selected', 'true')
