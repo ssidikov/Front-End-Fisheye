@@ -75,7 +75,7 @@ button {
 
 .photographers {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 80px 124px;
     margin-top: 4vw;
 }
