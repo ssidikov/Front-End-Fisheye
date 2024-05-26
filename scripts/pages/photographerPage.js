@@ -103,6 +103,7 @@ function totalLikes() {
 function sortBy(type) {
   // get the dropdown icon
   const dropdownIcon = `<i class="dropdown__icon fa-solid fa-chevron-down"></i>`;
+  dropdownIcon.setAttribute('aria-hidden', 'true');
   // get the media data from the local storage
   const media = JSON.parse(localStorage.getItem('medias'));
   const mediaContainer = document.querySelector('.media');

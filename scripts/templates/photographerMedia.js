@@ -51,6 +51,7 @@ function mediaFactory(data) {
     cardLikeIcon.setAttribute('alt', 'likes')
     cardLikeIcon.setAttribute('aria-label', 'likes')
     cardLikeIcon.setAttribute('tabindex', '0')
+    cardLikeIcon.setAttribute('aria-hidden', 'true')
     cardLikeIcon.setAttribute('onclick', `addLikes(${index})`)
 
     article.appendChild(a)
