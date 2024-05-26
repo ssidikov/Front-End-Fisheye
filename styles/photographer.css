@@ -239,35 +239,24 @@
   border: none;
   width: auto;
   height: auto;
-  font-size: clamp(1rem, 0.7143rem + 1.4286vw, 2rem);
   margin: 8px;
-  /* width: 96px;
-  height: 96px; */
 }
 
 .lightbox__control--icon {
   color: var(--main-color);
-  font-size: 2em;
+  font-size: clamp(1.5rem, 0.7143rem + 1.4286vw, 2rem);
   cursor: pointer;
 }
 
 .lightbox__close {
-  /* position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer; */
   position: absolute;
   top: 0;
   right: 0;
-  /* font-size: 1.5em; */
   cursor: pointer;
-  /* width: 180px;
-  height: auto; */
 }
 
 .lightbox__media-container {
   width: 100%;
-  /* padding: 0 10px; */
   margin: 12px;
 }
 
@@ -388,7 +377,6 @@
 
 .form__data {
   width: 100%;
-  /* height: 14vh; */
 }
 
 .form__data[data-error-visible="true"]::after {
@@ -404,7 +392,6 @@
   text-align: left;
   opacity: 0;
   animation: fadeIn 0.5s, scaleIn 0.5s;
-  /* transition: 0.3s; */
 }
 
 .form__data[data-error-visible="true"]::after {
@@ -486,10 +473,6 @@
   .form__textarea {
     height: 140px;
   }
-
-  /* .dropdown__button {
-    font-size: 14px;
-  } */
 
   .dropdown__item:first-child {
     padding-top: 14px;
@@ -581,7 +564,6 @@
 
   .contact-modal__inner {
     width: 80%;
-    /* margin-top: 5vh; */
   }
 
   .sorting {
@@ -629,12 +611,6 @@
     height: 250px;
   }
 
-  /* .card__description,
-  .like__number,
-  .like__icon {
-    font-size: 18px;
-  } */
-
   .contact-modal {
     padding: 10px;
   }
@@ -670,17 +646,7 @@
 
   .lightbox__viewer {
     margin-top: 5vh;
-    /* margin-right: 0;
-    margin-left: 0; */
   }
-
-  /* .lightbox__control {
-    background-color: transparent;
-    border: none;
-    width: auto;
-    height: auto;
-  } */
-
 }
 
 /* Keyframes */

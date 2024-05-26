@@ -123,12 +123,12 @@ button {
 
 @media screen and (max-width: 1024px) {
 
-    /* button {
+    button {
         font-size: 14px;
         padding: 10px;
         width: 150px;
         height: 50px;
-    } */
+    }
 
     .photographers {
         grid-template-columns: 1fr 1fr;
