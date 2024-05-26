@@ -29,16 +29,16 @@
         <label class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
           <button class="dropdown__button" role="button" aria-haspopup="listbox" aria-expanded="false"
-            aria-labelledby="pop" onclick="dropdown()">Popularité</i>
+            aria-labelledby="pop">Popularité</i>
           </button>
           <ul class="dropdown__list" role="listbox" aria-hidden="true" aria-activedescendant="pop">
-            <li class="dropdown__item" role="option" onclick="sortBy('Popularité')" aria-selected="true">
+            <li class="dropdown__item" role="option" aria-selected="true">
               <p>Popularité</p> <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
             </li>
-            <li class="dropdown__item" role="option" onclick="sortBy('Date')">
+            <li class="dropdown__item" role="option">
               <p>Date</p>
             </li>
-            <li class="dropdown__item" role="option" onclick="sortBy('Titre')">
+            <li class="dropdown__item" role="option">
               <p>Titre</p>
             </li>
           </ul>
@@ -93,11 +93,11 @@
     </div>
   </div>
   <!-- Scripts -->
-  <script src="scripts/templates/photographerHeader.js"></script>
-  <script src="scripts/templates/photographerMedia.js"></script>
+  <!-- <script src="scripts/templates/photographerHeader.js"></script>
+  <script src="scripts/templates/photographerMedia.js"></script> -->
   <script src="scripts/utils/contactForm.js"></script>
-  <script src="scripts/templates/lightbox.js"></script>
-  <script src="scripts/pages/photographerPage.js"></script>
+  <!-- <script src="scripts/templates/lightbox.js"></script> -->
+  <script type="module" src="scripts/pages/photographerPage.js"></script>
 
 </body>
 

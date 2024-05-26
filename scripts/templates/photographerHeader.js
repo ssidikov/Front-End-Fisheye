@@ -1,6 +1,6 @@
 // Description: This file contains the function that generates the DOM structure for the photographer header in the photographer page.
 // The function photographerHeader(data) takes the data of a photographer as an argument and returns the DOM structure of the header.
-function photographerHeader(data) {
+export function photographerHeader(data) {
   // Destructuring the data
   const { name, portrait, city, country, tagline, price } = data;
   // Path to the photographer's portrait

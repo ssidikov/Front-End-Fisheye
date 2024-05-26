@@ -1,4 +1,9 @@
 // Description: This file contains the code to display the photographer page.
+
+import { photographerHeader } from '../templates/photographerHeader.js';
+import { mediaFactory } from '../templates/mediaCard.js';
+import { lightboxFactory } from '../templates/lightbox.js';
+
 // The function getData() fetches the data of the photographers from the JSON file.
 async function getData() {
   try {
@@ -71,7 +76,7 @@ async function displayMediaData(media) {
   totalLikes()
 }
 
-function addLikes(index) {
+export function addLikes(index) {
   const media = JSON.parse(localStorage.getItem('medias'))
   const mediasBase = JSON.parse(localStorage.getItem('mediasBase'))
   const photo = document.getElementById(`${media[index].id}`)
@@ -90,11 +95,11 @@ function addLikes(index) {
 
 // Total number of likes
 function totalLikes() {
-  // Get the media data from local storage
+  // get the media data from local storage
   const media = JSON.parse(localStorage.getItem('medias'))
-  // Calculate the total number of likes
+  // calculate the total number of likes
   const totalLikes = media.reduce((sum, mediaItem) => sum + mediaItem.likes, 0)
-  // Display the total number of likes
+  // display the total number of likes
   document.getElementById('totalLikes').textContent = totalLikes
 }
 
@@ -126,10 +131,23 @@ function sortBy(type) {
   document.querySelector('.sorting__dropdown').classList.remove('active');
   document.querySelector('.dropdown__button').textContent = type;
   document.querySelector('.dropdown__button').innerHTML += dropdownIcon;
+  document.querySelector('.dropdown__button').addEventListener('click', dropdown);
+
+  // get all the dropdown items and add the click event handler
+  const dropdownItems = document.querySelectorAll('.dropdown__item');
+  // pass on each element and add the Click event handler
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', function(event) {
+      // get the text content of the clicked element
+      const sortByValue = event.currentTarget.textContent.trim();
+      // sort the media by the clicked element
+      sortBy(sortByValue);
+    });
+  });
 };
 
 // Lightbox for media
-function launchLightbox(index) {
+export function launchLightbox(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
   const photographerData = localStorage.getItem('photographerData');
   const mediaLightBox = media[index];
@@ -145,7 +163,7 @@ function launchLightbox(index) {
   lightbox.appendChild(getLightboxDOM);
 };
 
-function next () {
+export function next () {
   let nextPhoto = parseInt(localStorage.getItem('currentMedia')) + 1
   localStorage.setItem('currentMedia', nextPhoto)
   const media = JSON.parse(localStorage.getItem('medias'))
@@ -155,7 +173,7 @@ function next () {
   launchLightbox(nextPhoto)
 }
 // lightbox left arrow
-function previous () {
+export function previous () {
   let previousPhoto = parseInt(localStorage.getItem('currentMedia')) - 1
   localStorage.setItem('currentMedia', previousPhoto)
   const medias = JSON.parse(localStorage.getItem('medias'))
@@ -166,7 +184,7 @@ function previous () {
 }
 
 
-function closeLightbox() {
+export function closeLightbox() {
   const body = document.querySelector('body')
   body.style.overflow = 'auto'
   const lightbox = document.querySelector('#lightbox')
@@ -174,7 +192,7 @@ function closeLightbox() {
   lightbox.setAttribute('aria-hidden', 'true')
 }
 
-function dropdown() {
+export function dropdown() {
   const dropdown = document.querySelector('.sorting__dropdown')
   dropdown.classList.toggle('active')
   if (dropdown.classList.contains('active')) {

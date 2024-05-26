@@ -1,4 +1,7 @@
-function mediaFactory(data) {
+import { launchLightbox, addLikes } from '../pages/photographerPage.js';
+
+
+export function mediaFactory(data) {
 
   const { id, image, video, poster, likes, title } = data;
 
@@ -52,7 +55,7 @@ function mediaFactory(data) {
     cardLikeIcon.setAttribute('aria-label', 'likes')
     cardLikeIcon.setAttribute('tabindex', '0')
     cardLikeIcon.setAttribute('aria-hidden', 'true')
-    cardLikeIcon.setAttribute('onclick', `addLikes(${index})`)
+    cardLikeIcon.addEventListener('click', () => addLikes(index))
 
     article.appendChild(a)
     a.appendChild(imageOrVideo)

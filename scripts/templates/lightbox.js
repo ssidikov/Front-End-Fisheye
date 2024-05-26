@@ -1,4 +1,6 @@
-function lightboxFactory(data) {
+import { closeLightbox, next, previous } from '../pages/photographerPage.js'
+
+export function lightboxFactory(data) {
 
   const { image, video, title } = data;
 
