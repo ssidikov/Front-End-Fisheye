@@ -54,7 +54,7 @@
             <p id="totalLikes" class="fees__total-likes"></p>
             <i class="fees__icon-like fa-solid fa-heart" aria-hidden="true"></i>
           </div>
-          <div class="fees__right"></div>
+          <p class="fees__right"></p>
         </div>
       </article>
     </div>
@@ -62,11 +62,10 @@
   <!-- Contact modal -->
   <div class="contact-modal" id="contact-modal" aria-labelledby="contactForm" role="dialog" aria-hidden="true"
     tabindex="-1">
-    <div class="contact-modal__inner modal">
-      <div class="contact-modal__header modal-header">
-        <h1 class="contact-modal__title modal-title"></h1>
-        <img src="assets/icons/close-modal.svg" alt="close-modal" class="contact-modal__close closeModal"
-          data-dismiss="dialog" onclick="closeContactForm()">
+    <div class="contact-modal__inner">
+      <div class="contact-modal__header">
+        <h1 class="contact-modal__title"></h1>
+        <img src="assets/icons/close-modal.svg" alt="close-modal" class="contact-modal__close" data-dismiss="dialog">
       </div>
       <form name="contact" method="post" id="contact-form" class="contact-modal__form" aria-hidden="true">
         <div class="form__content" role="document">
@@ -93,7 +92,6 @@
     </div>
   </div>
   <!-- Scripts -->
-  <script src="scripts/utils/contactForm.js"></script>
   <script type="module" src="scripts/pages/photographerPage.js"></script>
 
 </body>

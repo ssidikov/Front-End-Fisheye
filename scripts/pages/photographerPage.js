@@ -4,6 +4,8 @@ import { photographerHeader } from '../factories/photographerHeader.js';
 import { mediaFactory } from '../factories/mediaFactory.js';
 import { lightboxFactory } from '../factories/lightboxFactory.js';
 
+const lightbox = document.querySelector('#lightbox')
+
 // The function getData() fetches the data of the photographers from the JSON file.
 async function getData() {
   try {
@@ -187,7 +189,6 @@ export function previous () {
 export function closeLightbox() {
   const body = document.querySelector('body')
   body.style.overflow = 'auto'
-  const lightbox = document.querySelector('#lightbox')
   lightbox.style.display = 'none'
   lightbox.setAttribute('aria-hidden', 'true')
 }

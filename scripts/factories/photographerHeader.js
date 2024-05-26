@@ -1,4 +1,5 @@
 // Description: This file contains the function that generates the DOM structure for the photographer header in the photographer page.
+import { openContactForm, closeContactForm } from '../utils/contactForm.js';
 // The function photographerHeader(data) takes the data of a photographer as an argument and returns the DOM structure of the header.
 export function photographerHeader(data) {
   // Destructuring the data
@@ -30,12 +31,16 @@ export function photographerHeader(data) {
     contactButton.classList.add('photograph-header__contact-button');
     contactButton.setAttribute('aria-label', 'Contactez ' + name);
     contactButton.setAttribute('role', 'button');
-    contactButton.setAttribute('onclick', 'openContactForm()');
+    contactButton.addEventListener('click', openContactForm);
 
     // contact name of the photographer in the modal
     const contactName = document.querySelector('.contact-modal__title');
     contactName.innerHTML = `Contactez-moi<br>${name}`;
     contactName.setAttribute('aria-label', name);
+
+    // close the modal
+    const closeModal = document.querySelector('.contact-modal__close');
+    closeModal.addEventListener('click', closeContactForm);
 
     // Portrait of the photographer
     const img = document.createElement('img');
