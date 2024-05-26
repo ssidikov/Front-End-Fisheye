@@ -64,12 +64,11 @@
     tabindex="-1">
     <div class="contact-modal__inner modal">
       <div class="contact-modal__header modal-header">
-        <h2 class="contact-modal__title modal-title"></h2>
+        <h1 class="contact-modal__title modal-title"></h1>
         <img src="assets/icons/close-modal.svg" alt="close-modal" class="contact-modal__close closeModal"
-          onclick="closeContactForm()">
+          data-dismiss="dialog" onclick="closeContactForm()">
       </div>
-      <form action="index.html" name="contact" method="get" id="contact-form" class="contact-modal__form"
-        aria-hidden="true">
+      <form name="contact" method="post" id="contact-form" class="contact-modal__form" aria-hidden="true">
         <div class="form__content" role="document">
           <div class="form__data" data-error-visible="false">
             <label for="name" class="form__label">Prénom</label>
@@ -88,7 +87,7 @@
             <textarea name="message" id="message" placeholder="Votre message" class="form__textarea" rows="20"
               cols="61"></textarea>
           </div>
-          <button class="form__submit" type="submit">Envoyer</button>
+          <button class="form__submit" aria-label="Envoyer" type="submit">Envoyer</button>
         </div>
       </form>
     </div>
