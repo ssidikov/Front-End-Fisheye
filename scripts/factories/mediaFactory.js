@@ -31,7 +31,7 @@ export function mediaFactory(data) {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.classList.add('card__image')
-      imageOrVideo.setAttribute('alt', title)
+      imageOrVideo.setAttribute('alt', `${title}, vue rapprochée`)
       imageOrVideo.addEventListener('click', () => launchLightbox(index))
     }
 
