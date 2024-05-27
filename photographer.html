@@ -26,19 +26,19 @@
     <div class="main__container container">
       <section class="photograph-header"></section>
       <div class="sorting" id="sorting">
-        <label class="sorting__label">Trier par</label>
+        <label for="dropdownButton" id="sortBy" class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
-          <button class="dropdown__button" role="button" aria-haspopup="listbox" aria-expanded="false"
-            aria-labelledby="pop">Popularité</button>
-          <ul class="dropdown__list" role="listbox" aria-hidden="true" aria-activedescendant="pop">
+          <button id="dropdownButton" class="dropdown__button" type="button" role="button" aria-haspopup="listbox"
+            aria-controls="dropdown__list" aria-expanded="false" aria-labelledby="sortBy">Popularité</button>
+          <ul id="dropdown__list" class="dropdown__list" role="listbox" aria-hidden="true" aria-labelledby="sortBy">
             <li class="dropdown__item" role="option" aria-selected="true">
-              <p>Popularité</p> <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
+              Popularité<i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
             </li>
             <li class="dropdown__item" role="option">
-              <p>Date</p>
+              Date
             </li>
             <li class="dropdown__item" role="option">
-              <p>Titre</p>
+              Titre
             </li>
           </ul>
         </div>

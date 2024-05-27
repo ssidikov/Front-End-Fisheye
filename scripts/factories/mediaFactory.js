@@ -14,10 +14,10 @@ export function mediaFactory(data) {
     article.classList.add('media__card')
     article.setAttribute('id', `${id}`);
 
-    const a = document.createElement('a')
-    a.classList.add('card_link')
-    a.addEventListener('click', () => launchLightbox(index));
-    a.setAttribute('href', '#')
+    // const mediaItem = document.createElement('div')
+    // mediaItem.classList.add('card_link')
+    // mediaItem.addEventListener('click', () => launchLightbox(index));
+    // mediaItem.setAttribute('href', '#')
 
     let imageOrVideo
     if (video) {
@@ -26,11 +26,13 @@ export function mediaFactory(data) {
       imageOrVideo.setAttribute('poster', posterImg)
       imageOrVideo.classList.add('card__video')
       imageOrVideo.setAttribute('alt', title)
+      imageOrVideo.addEventListener('click', () => launchLightbox(index))
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.classList.add('card__image')
       imageOrVideo.setAttribute('alt', title)
+      imageOrVideo.addEventListener('click', () => launchLightbox(index))
     }
 
     const cardDescription = document.createElement('div')
@@ -57,8 +59,9 @@ export function mediaFactory(data) {
     cardLikeIcon.setAttribute('aria-hidden', 'true')
     cardLikeIcon.addEventListener('click', () => addLikes(index))
 
-    article.appendChild(a)
-    a.appendChild(imageOrVideo)
+    // article.appendChild(a)
+    // a.appendChild(imageOrVideo)
+    article.appendChild(imageOrVideo)
     article.appendChild(cardDescription)
     cardDescription.appendChild(cardTitle)
     cardDescription.appendChild(cardLike)

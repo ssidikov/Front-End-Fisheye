@@ -131,9 +131,12 @@ function sortBy(type) {
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
-  document.querySelector('.dropdown__button').textContent = type;
-  document.querySelector('.dropdown__button').innerHTML += dropdownIcon;
-  document.querySelector('.dropdown__button').addEventListener('click', dropdown);
+  const dropdownButton = document.querySelector('.dropdown__button');
+  dropdownButton.textContent = type;
+  dropdownButton.innerHTML += dropdownIcon;
+  dropdownButton.addEventListener('click', dropdown);
+  dropdownButton.setAttribute('aria-expanded', 'false');
+  
 
   // get all the dropdown items and add the click event handler
   const dropdownItems = document.querySelectorAll('.dropdown__item');
