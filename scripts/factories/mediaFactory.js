@@ -51,21 +51,37 @@ export function mediaFactory(data) {
     likeNumber.classList.add('like__number')
     likeNumber.textContent = likes
 
+    // const cardLikeSpan = document.createElement('span')
+    // cardLikeSpan.setAttribute('alt', 'likes')
+    // cardLikeSpan.setAttribute('aria-label', 'likes')
+    // cardLikeSpan.setAttribute('tabindex', '0')
+    // cardLikeIcon.addEventListener('click', () => addLikes(index))
+
+    const cardLikeSpan = document.createElement('span')
+    cardLikeSpan.setAttribute('tabindex', '0')
+    cardLikeSpan.addEventListener('click', () => addLikes(index))
+    cardLikeSpan.setAttribute('aria-label', 'likes')
+    cardLikeSpan.setAttribute('role', 'button')
+    cardLikeSpan.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        addLikes(index)
+      }
+    })
+
     const cardLikeIcon = document.createElement('i')
     cardLikeIcon.classList.add('like__icon', 'fa-solid', 'fa-heart')
     cardLikeIcon.setAttribute('alt', 'likes')
     cardLikeIcon.setAttribute('aria-label', 'likes')
     cardLikeIcon.setAttribute('aria-hidden', 'true')
-    cardLikeIcon.addEventListener('click', () => addLikes(index))
+    cardLikeIcon.setAttribute('role', 'icon')
 
-    // article.appendChild(a)
-    // a.appendChild(imageOrVideo)
     article.appendChild(imageOrVideo)
     article.appendChild(cardDescription)
     cardDescription.appendChild(cardTitle)
     cardDescription.appendChild(cardLike)
     cardLike.appendChild(likeNumber)
-    cardLike.appendChild(cardLikeIcon)
+    cardLike.appendChild(cardLikeSpan)
+    cardLikeSpan.appendChild(cardLikeIcon)
 
     return article
   }
