@@ -55,7 +55,6 @@ export function mediaFactory(data) {
     cardLikeIcon.classList.add('like__icon', 'fa-solid', 'fa-heart')
     cardLikeIcon.setAttribute('alt', 'likes')
     cardLikeIcon.setAttribute('aria-label', 'likes')
-    cardLikeIcon.setAttribute('tabindex', '0')
     cardLikeIcon.setAttribute('aria-hidden', 'true')
     cardLikeIcon.addEventListener('click', () => addLikes(index))
 
