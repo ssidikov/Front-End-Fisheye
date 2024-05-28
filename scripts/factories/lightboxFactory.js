@@ -28,11 +28,11 @@ export function lightboxFactory(data) {
     const lightboxClose = document.createElement('button')
     lightboxClose.classList.add('lightbox__close', 'lightbox__control')
     lightboxClose.setAttribute('aria-label', 'Fermer la visionneuse')
+    lightboxClose.setAttribute('tabindex', '0')
     lightboxClose.addEventListener('click', () => closeLightbox())
 
     const btnCloseLightbox = document.createElement('i')
     btnCloseLightbox.classList.add('lightbox__control--icon','fa-solid', 'fa-xmark')
-    btnCloseLightbox.setAttribute('tabindex', '0')
     btnCloseLightbox.setAttribute('aria-hidden', 'true')
     btnCloseLightbox.setAttribute('aria-label', 'Fermer la visionneuse')
 
@@ -40,22 +40,23 @@ export function lightboxFactory(data) {
     const navigateLeft = document.createElement('button')
     navigateLeft.classList.add('lightbox__control')
     navigateLeft.setAttribute('aria-label', 'Photo précédente')
+    navigateLeft.setAttribute('tabindex', '0')
     navigateLeft.addEventListener('click', () => previous())
     
     const btnLeftArrow = document.createElement('i')
     btnLeftArrow.classList.add('lightbox__control--icon', 'fa-solid', 'fa-angle-left')
+    btnLeftArrow.setAttribute('aria-hidden', 'true')
     btnLeftArrow.setAttribute('alt', 'Photo précédente')
-    btnLeftArrow.setAttribute('tabindex', '0')
 
     // Right arrow to navigate to the next media
     const navigateRight = document.createElement('button')
     navigateRight.classList.add('lightbox__control')
     navigateRight.setAttribute('aria-label', 'Photo suivante')
+    navigateRight.setAttribute('tabindex', '0')
     navigateRight.addEventListener('click', () => next())
 
     const rightArrow = document.createElement('i')
     rightArrow.classList.add('lightbox__control--icon', 'fa-solid', 'fa-angle-right')
-    rightArrow.setAttribute('tabindex', '0')
     rightArrow.setAttribute('aria-hidden', 'true')
     rightArrow.setAttribute('aria-label', 'Photo suivante')
 
@@ -75,12 +76,16 @@ export function lightboxFactory(data) {
       imageOrVideo.setAttribute('loop', 'loop')
       imageOrVideo.setAttribute('muted', 'muted')
       imageOrVideo.setAttribute('type', 'video/mp4');
+      imageOrVideo.setAttribute('tabindex', '0')
+      imageOrVideo.setAttribute('aria-role', 'vidéo')
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('id', 'lightbox_photo')
       imageOrVideo.classList.add('lightbox__media')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.setAttribute('alt', title)
+      imageOrVideo.setAttribute('tabindex', '0')
+      imageOrVideo.setAttribute('aria-role', 'image')
     }
 
     // Description of the media

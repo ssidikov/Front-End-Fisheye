@@ -233,7 +233,7 @@ form.addEventListener('submit', (e) =>{
 
 export function openContactForm() {
   body.style.overflow = 'hidden';
-  modal.style.display = 'flex';
+  modal.style.display = 'block';
   modal.setAttribute('aria-hidden', 'false');
   modal.focus();
 };

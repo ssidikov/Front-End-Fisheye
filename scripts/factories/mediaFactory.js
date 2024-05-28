@@ -14,10 +14,13 @@ export function mediaFactory(data) {
     article.classList.add('media__card')
     article.setAttribute('id', `${id}`);
 
-    // const mediaItem = document.createElement('div')
-    // mediaItem.classList.add('card_link')
-    // mediaItem.addEventListener('click', () => launchLightbox(index));
-    // mediaItem.setAttribute('href', '#')
+    const mediaItem = document.createElement('div')
+    mediaItem.classList.add('card_link')
+    mediaItem.addEventListener('click', () => launchLightbox(index));
+    mediaItem.setAttribute('tabindex', '0')
+    mediaItem.setAttribute('aria-haspopup', 'dialog');
+    mediaItem.setAttribute('aria-controls', 'lightbox');
+    mediaItem.setAttribute('aria-label', 'Ouvrir lightbox');
 
     let imageOrVideo
     if (video) {
@@ -25,16 +28,12 @@ export function mediaFactory(data) {
       imageOrVideo.setAttribute('src', videoImg)
       imageOrVideo.setAttribute('poster', posterImg)
       imageOrVideo.classList.add('card__video')
-      imageOrVideo.setAttribute('alt', title)
-      imageOrVideo.setAttribute('tabindex', '0')
-      imageOrVideo.addEventListener('click', () => launchLightbox(index))
+      imageOrVideo.setAttribute('alt', `${title}, vue rapprochée`)
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.classList.add('card__image')
       imageOrVideo.setAttribute('alt', `${title}, vue rapprochée`)
-      imageOrVideo.setAttribute('tabindex', '0')
-      imageOrVideo.addEventListener('click', () => launchLightbox(index))
     }
 
     const cardDescription = document.createElement('div')
@@ -51,16 +50,10 @@ export function mediaFactory(data) {
     likeNumber.classList.add('like__number')
     likeNumber.textContent = likes
 
-    // const cardLikeSpan = document.createElement('span')
-    // cardLikeSpan.setAttribute('alt', 'likes')
-    // cardLikeSpan.setAttribute('aria-label', 'likes')
-    // cardLikeSpan.setAttribute('tabindex', '0')
-    // cardLikeIcon.addEventListener('click', () => addLikes(index))
-
     const cardLikeSpan = document.createElement('span')
     cardLikeSpan.setAttribute('tabindex', '0')
     cardLikeSpan.addEventListener('click', () => addLikes(index))
-    cardLikeSpan.setAttribute('aria-label', 'likes')
+    cardLikeSpan.setAttribute('aria-label', 'like')
     cardLikeSpan.setAttribute('role', 'button')
     cardLikeSpan.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -70,12 +63,14 @@ export function mediaFactory(data) {
 
     const cardLikeIcon = document.createElement('i')
     cardLikeIcon.classList.add('like__icon', 'fa-solid', 'fa-heart')
-    cardLikeIcon.setAttribute('alt', 'likes')
     cardLikeIcon.setAttribute('aria-label', 'likes')
     cardLikeIcon.setAttribute('aria-hidden', 'true')
     cardLikeIcon.setAttribute('role', 'icon')
 
-    article.appendChild(imageOrVideo)
+    // article.appendChild(imageOrVideo)
+    
+    article.appendChild(mediaItem)
+    mediaItem.appendChild(imageOrVideo)
     article.appendChild(cardDescription)
     cardDescription.appendChild(cardTitle)
     cardDescription.appendChild(cardLike)

@@ -25,65 +25,98 @@
   <main id="main" class="photograph__main">
     <div class="main__container container">
       <section class="photograph-header"></section>
-      <div class="sorting" id="sorting">
-        <label for="dropdownButton" id="sortBy" class="sorting__label">Trier par</label>
+      <!-- <div class="sorting">
+        <label id="sortBy" for="dropdownButton" class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
           <button id="dropdownButton" class="dropdown__button" type="button" role="button" aria-haspopup="listbox"
-            aria-controls="dropdown__list" aria-expanded="false" aria-labelledby="sortBy">Popularité</button>
-          <ul id="dropdown__list" class="dropdown__list" role="listbox" aria-hidden="true" aria-labelledby="sortBy">
-            <li class="dropdown__item" role="option" aria-selected="true">
-              Popularité<i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
+            aria-controls="dropdown__list" aria-expanded="false" aria-labelledby="sortBy">
+            Popularité
+            <i class="dropdown__icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <ul id="dropdown__list" class="dropdown__list" role="listbox" aria-hidden="true">
+            <li id="sortPopularity" class="dropdown__item" role="option" aria-selected="true" tabindex="0">
+              Popularité
+              <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
             </li>
-            <li class="dropdown__item" role="option">
+            <li id="sortDate" class="dropdown__item" role="option" tabindex="0">
               Date
             </li>
-            <li class="dropdown__item" role="option">
+            <li id="sortTitle" class="dropdown__item" role="option" tabindex="0">
+              Titre
+            </li>
+          </ul>
+        </div>
+      </div> -->
+      <div class="sorting">
+        <label id="sortBy" for="dropdownButton" class="sorting__label">Trier par</label>
+        <div class="sorting__dropdown">
+          <button id="dropdownButton" class="dropdown__button" type="button" aria-haspopup="listbox"
+            aria-expanded="false" aria-labelledby="sortBy">
+            <span class="dropdown__value">Popularité</span>
+            <span class="dropdown__button-icon"><i class="fa fa-chevron-down"></i></span>
+          </button>
+          <ul class="dropdown__list" aria-labelledby="sortBy" aria-activedescendant="popularity" aria-selected="true"
+            role="listbox">
+            <li class="dropdown__item" data-value="popularity" aria-label="popularity" role="option" tabindex="0">
+              Popularité
+              <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
+            </li>
+            <li class="dropdown__item" data-value="date" aria-label="date" role="option" tabindex="0">
+              Date
+            </li>
+            <li class="dropdown__item" data-value="title" aria-label="title" role="option" tabindex="0">
               Titre
             </li>
           </ul>
         </div>
       </div>
-      <section class="media"></section>
-      <article class="lightbox" id="lightbox" aria-label="vue rapprochée de l'image" role="dialog" aria-hidden="true"
-        tabindex="-1">
-      </article>
-      <article class="fees">
-        <div class="fees__inner">
-          <div class="fees__left">
-            <p id="totalLikes" class="fees__total-likes"></p>
-            <i class="fees__icon-like fa-solid fa-heart" aria-hidden="true"></i>
-          </div>
-          <p class="fees__right"></p>
+    </div>
+    <section class="media" tabindex="0"></section>
+    <article class="lightbox" id="lightbox" aria-label="vue rapprochée de l'image" role="dialog" aria-hidden="true"
+      tabindex="-1">
+    </article>
+    <article class="fees">
+      <div class="fees__inner">
+        <div class="fees__left">
+          <p id="totalLikes" class="fees__total-likes"></p>
+          <i class="fees__icon-like fa-solid fa-heart" aria-hidden="true"></i>
         </div>
-      </article>
+        <p class="fees__right"></p>
+      </div>
+    </article>
     </div>
   </main>
   <!-- Contact modal -->
-  <div class="contact-modal" id="contact-modal" aria-labelledby="contact-form" role="dialog" aria-hidden="true"
-    tabindex="-1">
-    <div class="contact-modal__inner">
+  <div id="contact-modal" class="contact-modal" aria-modal="true" aria-labelledby="contact-modal__title" role="dialog"
+    aria-hidden="true" tabindex="-1">
+    <div class="contact-modal__inner" role="group">
       <div class="contact-modal__header">
         <h1 class="contact-modal__title"></h1>
-        <img src="assets/icons/close-modal.svg" alt="close contact form" class="contact-modal__close">
+        <button class="contact-modal__close" data-dismiss="dialog" aria-label="fermer formulaire de contact">
+          <img src="assets/icons/close-modal.svg" alt="fermer le formulaire de contact" aria-hidden="true">
+        </button>
       </div>
-      <form name="contact" method="post" id="contact-form" class="contact-modal__form" aria-hidden="true">
-        <div class="form__content" role="document">
+      <form name="contact" method="post" id="contact-form" class="contact-modal__form" novalidate="">
+        <div class="form__content">
           <div class="form__data" data-error-visible="false">
-            <label for="name" class="form__label">Prénom</label>
-            <input type="text" name="name" id="name" placeholder="Prénom" class="form__input">
+            <label id="labelName" for="name" class="form__label">Prénom</label>
+            <input type="text" name="name" id="name" placeholder="Prénom" class="form__input" autocomplete="off"
+              aria-labelledby="labelName" required>
           </div>
           <div class="form__data" data-error-visible="false">
-            <label for="lastName" class="form__label">Nom</label>
-            <input type="text" name="lastName" id="lastName" placeholder="Nom" class="form__input">
+            <label id="labelLastName" for="lastName" class="form__label">Nom</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Nom" class="form__input" autocomplete="off"
+              aria-labelledby="labelLastName" required>
           </div>
           <div class="form__data" data-error-visible="false">
-            <label for="email" class="form__label">E-mail</label>
-            <input type="email" name="email" id="email" placeholder="E-mail" class="form__input">
+            <label id="LabelEmail" for="email" class="form__label">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="E-mail" class="form__input" autocomplete="off"
+              aria-labelledby="LabelEmail" required>
           </div>
           <div class="form__data" data-error-visible="false">
-            <label for="message" class="form__label">Votre message</label>
-            <textarea name="message" id="message" placeholder="Votre message" class="form__textarea" rows="20"
-              cols="61"></textarea>
+            <label id="LabelMessage" for="message" class="form__label">Votre message</label>
+            <textarea name="message" id="message" placeholder="Votre message" class="form__textarea" rows="20" cols="61"
+              aria-labelledby="LabelMessage" required></textarea>
           </div>
           <button class="form__submit" aria-label="Envoyer" type="submit">Envoyer</button>
         </div>

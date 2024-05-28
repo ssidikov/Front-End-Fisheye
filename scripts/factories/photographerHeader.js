@@ -31,12 +31,12 @@ export function photographerHeader(data) {
     contactButton.classList.add('photograph-header__contact-button');
     contactButton.setAttribute('aria-label', 'Contactez ' + name);
     contactButton.setAttribute('role', 'button');
+    contactButton.setAttribute('aria-haspopup', 'dialog');
     contactButton.addEventListener('click', openContactForm);
 
     // contact name of the photographer in the modal
     const contactName = document.querySelector('.contact-modal__title');
     contactName.innerHTML = `Contactez-moi<br>${name}`;
-    contactName.setAttribute('aria-label', name);
 
     // close the modal
     const closeModal = document.querySelector('.contact-modal__close');
