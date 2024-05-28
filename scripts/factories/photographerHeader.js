@@ -40,6 +40,7 @@ export function photographerHeader(data) {
 
     // close the modal
     const closeModal = document.querySelector('.contact-modal__close');
+    closeModal.setAttribute('tabindex', '0');
     closeModal.addEventListener('click', closeContactForm);
 
     // Portrait of the photographer

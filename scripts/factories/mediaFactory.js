@@ -26,12 +26,14 @@ export function mediaFactory(data) {
       imageOrVideo.setAttribute('poster', posterImg)
       imageOrVideo.classList.add('card__video')
       imageOrVideo.setAttribute('alt', title)
+      imageOrVideo.setAttribute('tabindex', '0')
       imageOrVideo.addEventListener('click', () => launchLightbox(index))
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.classList.add('card__image')
       imageOrVideo.setAttribute('alt', `${title}, vue rapprochée`)
+      imageOrVideo.setAttribute('tabindex', '0')
       imageOrVideo.addEventListener('click', () => launchLightbox(index))
     }
 
@@ -44,12 +46,10 @@ export function mediaFactory(data) {
 
     const cardLike = document.createElement('div')
     cardLike.classList.add('card__like')
-    cardLike.setAttribute('tabindex', '0')
 
     const likeNumber = document.createElement('div')
     likeNumber.classList.add('like__number')
     likeNumber.textContent = likes
-    likeNumber.setAttribute('tabindex', '0')
 
     const cardLikeIcon = document.createElement('i')
     cardLikeIcon.classList.add('like__icon', 'fa-solid', 'fa-heart')

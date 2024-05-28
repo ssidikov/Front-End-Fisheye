@@ -131,7 +131,7 @@ function sortBy(type) {
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
-  const dropdownButton = document.querySelector('.dropdown__button');
+  const dropdownButton = document.querySelector('#dropdownButton');
   dropdownButton.textContent = type;
   dropdownButton.innerHTML += dropdownIcon;
   dropdownButton.addEventListener('click', dropdown);
