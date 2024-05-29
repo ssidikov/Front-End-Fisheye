@@ -17,6 +17,7 @@ export function photographerHeader(data) {
     // Name of the photographer
     const nameElement = document.createElement('h1');
     nameElement.textContent = name;
+    nameElement.setAttribute('id', 'photograph-header-heading');
     nameElement.classList.add('description__name');
     nameElement.setAttribute('aria-label', name);
     nameElement.setAttribute('tabindex', '0');
@@ -46,7 +47,7 @@ export function photographerHeader(data) {
 
     // contact name of the photographer in the modal
     const contactName = document.querySelector('.contact-modal__title');
-    contactName.innerHTML = `Contactez-moi<br>${name}`;
+    contactName.insertAdjacentHTML('beforeend', ` ${name}`);
 
     // close the modal
     const closeModal = document.querySelector('.contact-modal__close');

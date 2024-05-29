@@ -26,25 +26,26 @@
   <!-- Main -->
   <main id="main" class="photograph__main">
     <div class="main__container container">
-      <section class="photograph-header"></section>
+      <section class="photograph-header" aria-labelledby="photograph-header-heading"></section>
       <div class="sorting">
         <label id="sortBy" for="dropdownButton" class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
-          <button id="dropdownButton" class="dropdown__button" type="button" aria-haspopup="listbox"
-            aria-expanded="false" aria-labelledby="sortBy">
+          <button id="dropdownButton" class="dropdown__button" type="button" role="button" aria-haspopup="listbox"
+            aria-expanded="false" aria-labelledby="sortBy" aria-controls="dropdownList">
             <span class="dropdown__value">Popularité</span>
             <span class="dropdown__button-icon"><i class="fa fa-chevron-down"></i></span>
           </button>
-          <ul class="dropdown__list" aria-labelledby="sortBy" aria-activedescendant="popularity" aria-selected="true"
-            role="listbox">
-            <li class="dropdown__item" data-value="popularity" aria-label="popularity" role="option" tabindex="0">
+          <ul id="dropdownList" class="dropdown__list" aria-labelledby="sortBy" role="listbox"
+            aria-activedescendant="popularityItem">
+            <li id="popularityItem" class="dropdown__item" data-value="popularity" aria-label="popularity" role="option"
+              tabindex="0">
               Popularité
               <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
             </li>
-            <li class="dropdown__item" data-value="date" aria-label="date" role="option" tabindex="0">
+            <li id="dateItem" class="dropdown__item" data-value="date" aria-label="date" role="option" tabindex="0">
               Date
             </li>
-            <li class="dropdown__item" data-value="title" aria-label="title" role="option" tabindex="0">
+            <li id="titleItem" class="dropdown__item" data-value="title" aria-label="title" role="option" tabindex="0">
               Titre
             </li>
           </ul>
@@ -52,8 +53,7 @@
       </div>
       <section class="media" tabindex="0"></section>
     </div>
-    <article class="lightbox" id="lightbox" aria-label="vue rapprochée de l'image" role="dialog" aria-hidden="true"
-      tabindex="-1">
+    <article class="lightbox" id="lightbox" aria-label="vue rapprochée de l'image" aria-hidden="true" tabindex="-1">
     </article>
     <article class="fees">
       <div class="fees__inner">
@@ -64,14 +64,13 @@
         <p class="fees__right"></p>
       </div>
     </article>
-    </div>
   </main>
   <!-- Contact modal -->
   <div id="contact-modal" class="contact-modal" aria-modal="true" aria-labelledby="contact-modal__title" role="dialog"
     aria-hidden="true" tabindex="-1">
     <div class="contact-modal__inner" role="group">
       <div class="contact-modal__header">
-        <h1 id="contact-modal__title" class="contact-modal__title"></h1>
+        <h1 id="contact-modal__title" class="contact-modal__title">Contactez-moi</h1>
         <button class="contact-modal__close" data-dismiss="dialog" aria-label="fermer formulaire de contact">
           <img src="assets/icons/close-modal.svg" alt="fermer le formulaire de contact" aria-hidden="true">
         </button>

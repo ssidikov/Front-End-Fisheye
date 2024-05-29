@@ -562,6 +562,10 @@
     width: 80%;
   }
 
+  .contact-modal__title {
+    max-width: 300px;
+  }
+
   .sorting {
     max-width: 100%;
     justify-content: center;
