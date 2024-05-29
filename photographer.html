@@ -25,28 +25,6 @@
   <main id="main" class="photograph__main">
     <div class="main__container container">
       <section class="photograph-header"></section>
-      <!-- <div class="sorting">
-        <label id="sortBy" for="dropdownButton" class="sorting__label">Trier par</label>
-        <div class="sorting__dropdown">
-          <button id="dropdownButton" class="dropdown__button" type="button" role="button" aria-haspopup="listbox"
-            aria-controls="dropdown__list" aria-expanded="false" aria-labelledby="sortBy">
-            Popularité
-            <i class="dropdown__icon fa-solid fa-chevron-down" aria-hidden="true"></i>
-          </button>
-          <ul id="dropdown__list" class="dropdown__list" role="listbox" aria-hidden="true">
-            <li id="sortPopularity" class="dropdown__item" role="option" aria-selected="true" tabindex="0">
-              Popularité
-              <i class="dropdown__icon fa-solid fa-chevron-up" aria-hidden="true"></i>
-            </li>
-            <li id="sortDate" class="dropdown__item" role="option" tabindex="0">
-              Date
-            </li>
-            <li id="sortTitle" class="dropdown__item" role="option" tabindex="0">
-              Titre
-            </li>
-          </ul>
-        </div>
-      </div> -->
       <div class="sorting">
         <label id="sortBy" for="dropdownButton" class="sorting__label">Trier par</label>
         <div class="sorting__dropdown">
@@ -70,8 +48,8 @@
           </ul>
         </div>
       </div>
+      <section class="media" tabindex="0"></section>
     </div>
-    <section class="media" tabindex="0"></section>
     <article class="lightbox" id="lightbox" aria-label="vue rapprochée de l'image" role="dialog" aria-hidden="true"
       tabindex="-1">
     </article>
@@ -91,7 +69,7 @@
     aria-hidden="true" tabindex="-1">
     <div class="contact-modal__inner" role="group">
       <div class="contact-modal__header">
-        <h1 class="contact-modal__title"></h1>
+        <h1 id="contact-modal__title" class="contact-modal__title"></h1>
         <button class="contact-modal__close" data-dismiss="dialog" aria-label="fermer formulaire de contact">
           <img src="assets/icons/close-modal.svg" alt="fermer le formulaire de contact" aria-hidden="true">
         </button>

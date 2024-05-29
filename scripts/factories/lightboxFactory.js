@@ -77,7 +77,6 @@ export function lightboxFactory(data) {
       imageOrVideo.setAttribute('muted', 'muted')
       imageOrVideo.setAttribute('type', 'video/mp4');
       imageOrVideo.setAttribute('tabindex', '0')
-      imageOrVideo.setAttribute('aria-role', 'vidéo')
     } else {
       imageOrVideo = document.createElement('img')
       imageOrVideo.setAttribute('id', 'lightbox_photo')
@@ -85,7 +84,6 @@ export function lightboxFactory(data) {
       imageOrVideo.setAttribute('src', picture)
       imageOrVideo.setAttribute('alt', title)
       imageOrVideo.setAttribute('tabindex', '0')
-      imageOrVideo.setAttribute('aria-role', 'image')
     }
 
     // Description of the media

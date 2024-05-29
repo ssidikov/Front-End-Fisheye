@@ -14,16 +14,26 @@ export function photographerHeader(data) {
     const article = document.createElement('article');
     article.classList.add('photograph-header__description');
 
+    // Name of the photographer
+    const nameElement = document.createElement('h1');
+    nameElement.textContent = name;
+    nameElement.classList.add('description__name');
+    nameElement.setAttribute('aria-label', name);
+    nameElement.setAttribute('tabindex', '0');
+
     // Location of the photographer
     const locationElement = document.createElement('h2');
     locationElement.textContent = location;
     locationElement.classList.add('description__location');
+    locationElement.setAttribute('aria-label', 'Localisation de ' + name + ':' + location);
+    locationElement.setAttribute('tabindex', '0');
 
     // Tagline of the photographer
     const taglineElement = document.createElement('p');
     taglineElement.textContent = tagline;
     taglineElement.classList.add('description__tagline');
     taglineElement.setAttribute('aria-label', 'Slogan de ' + name + ':' + tagline);
+    taglineElement.setAttribute('tabindex', '0');
 
     // Contact button
     const contactButton = document.createElement('button');
@@ -50,18 +60,23 @@ export function photographerHeader(data) {
     img.setAttribute('aria-label', 'Portrait de ' + name);
     img.classList.add('photograph-header__image');
 
-    // Name of the photographer
-    const nameElement = document.createElement('h2');
-    nameElement.textContent = name;
-    nameElement.classList.add('description__name');
-    nameElement.setAttribute('aria-label', name);
+    // Add the elements to the article
+    // const sectionPhotographHeader = document.querySelector('.photograph-header');
+    // sectionPhotographHeader.appendChild(article);
+    // article.appendChild(nameElement);
+    // article.appendChild(locationElement);
+    // article.appendChild(taglineElement);
+    // sectionPhotographHeader.appendChild(contactButton);
+    // sectionPhotographHeader.appendChild(img);
 
     // Add the elements to the article
-    const sectionPhotographHeader = document.querySelector('.photograph-header');
-    sectionPhotographHeader.appendChild(article);
     article.appendChild(nameElement);
     article.appendChild(locationElement);
     article.appendChild(taglineElement);
+
+    // Append the elements to the section Photograph Header
+    const sectionPhotographHeader = document.querySelector('.photograph-header');
+    sectionPhotographHeader.appendChild(article);
     sectionPhotographHeader.appendChild(contactButton);
     sectionPhotographHeader.appendChild(img);
     
