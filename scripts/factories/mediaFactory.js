@@ -18,8 +18,8 @@ export function mediaFactory(data) {
     mediaItem.classList.add('card_link')
     mediaItem.addEventListener('click', () => launchLightbox(index));
     mediaItem.setAttribute('tabindex', '0')
+    mediaItem.setAttribute('role', 'button')
     mediaItem.setAttribute('aria-haspopup', 'dialog');
-    mediaItem.setAttribute('aria-controls', 'lightbox');
     mediaItem.setAttribute('aria-label', 'Ouvrir lightbox');
 
     let imageOrVideo
