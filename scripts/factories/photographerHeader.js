@@ -17,7 +17,6 @@ export function photographerHeader(data) {
     // Name of the photographer
     const nameElement = document.createElement('h1');
     nameElement.textContent = name;
-    nameElement.setAttribute('id', 'photograph-header-heading');
     nameElement.classList.add('description__name');
     nameElement.setAttribute('aria-label', name);
     nameElement.setAttribute('tabindex', '0');
