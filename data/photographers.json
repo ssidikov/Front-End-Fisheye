@@ -7,7 +7,7 @@
 			"country": "UK",
 			"tagline": "Voir le beau dans le quotidien",
 			"price": 400,
-			"portrait": "MimiKeel.jpg"
+			"portrait": "MimiKeel.webp"
 		},
 		{
 			"name": "Ellie-Rose Wilkens",
@@ -16,7 +16,7 @@
 			"country": "France",
 			"tagline": "Capturer des compositions complexes",
 			"price": 250,
-			"portrait": "EllieRoseWilkens.jpg"
+			"portrait": "EllieRoseWilkens.webp"
 		},
 		{
 			"name": "Tracy Galindo",
@@ -25,7 +25,7 @@
 			"country": "Canada",
 			"tagline": "Photographe freelance",
 			"price": 500,
-			"portrait": "TracyGalindo.jpg"
+			"portrait": "TracyGalindo.webp"
 		},
 		{
 			"name": "Nabeel Bradford",
@@ -34,7 +34,7 @@
 			"country": "Mexico",
 			"tagline": "Toujours aller de l'avant",
 			"price": 350,
-			"portrait": "NabeelBradford.jpg"
+			"portrait": "NabeelBradford.webp"
 		},
 		{
 			"name": "Rhode Dubois",
@@ -43,7 +43,7 @@
 			"country": "Spain",
 			"tagline": "Je crée des souvenirs",
 			"price": 275,
-			"portrait": "RhodeDubois.jpg"
+			"portrait": "RhodeDubois.webp"
 		},
 		{
 			"name": "Marcel Nikolic",
@@ -52,7 +52,7 @@
 			"country": "Germany",
 			"tagline": "Toujours à la recherche de LA photo",
 			"price": 300,
-			"portrait": "MarcelNikolic.jpg"
+			"portrait": "MarcelNikolic.webp"
 		}
 	],
 	"media": [
@@ -115,7 +115,7 @@
 			"photographerId": 82,
 			"title": "Wooden sculpture of a horse",
 			"video": "Art_Wooden_Horse_Sculpture.mp4",
-			"poster": "Art_Wooden_Horse_Sculpture.jpg",
+			"poster": "Art_Wooden_Horse_Sculpture.webp",
 			"likes": 24,
 			"date": "2011-12-08",
 			"price": 100
@@ -225,7 +225,7 @@
 			"photographerId": 925,
 			"title": "Cute puppy on sunset",
 			"video": "Animals_Puppiness.mp4",
-			"poster": "Animals_Puppiness.jpg",
+			"poster": "Animals_Puppiness.webp",
 			"likes": 52,
 			"date": "2016-06-12",
 			"price": 70
@@ -235,7 +235,7 @@
 			"photographerId": 527,
 			"title": "Rocky mountains from the air",
 			"video": "Travel_Rock_Mountains.mp4",
-			"poster": "Travel_Rock_Mountains.jpg",
+			"poster": "Travel_Rock_Mountains.webp",
 			"likes": 23,
 			"date": "2017-03-18",
 			"price": 45
@@ -390,7 +390,7 @@
 			"photographerId": 243,
 			"title": "Wild horses in the mountains",
 			"video": "Animals_Wild_Horses_in_the_mountains.mp4",
-			"poster": "Animals_Wild_Horses_in_the_mountains.jpg",
+			"poster": "Animals_Wild_Horses_in_the_mountains.webp",
 			"likes": 142,
 			"date": "2019-08-23",
 			"price": 60
@@ -482,7 +482,7 @@
 			"photographerId": 195,
 			"title": "Drone shot of Buenos Aires highways",
 			"video": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
-			"poster": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.jpg",
+			"poster": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.webp",
 			"likes": 57,
 			"date": "2020-01-20",
 			"price": 65
@@ -501,7 +501,7 @@
 			"photographerId": 930,
 			"title": "Tricks in te air",
 			"video": "Sport_Tricks_in_the_air.mp4",
-			"poster": "Sport_Tricks_in_the_air.jpg",
+			"poster": "Sport_Tricks_in_the_air.webp",
 			"likes": 150,
 			"date": "2018-02-30",
 			"price": 70
