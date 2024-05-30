@@ -1,6 +1,5 @@
 import { launchLightbox, addLikes } from '../pages/photographerPage.js';
 
-
 export function mediaFactory(data) {
 
   const { id, image, video, poster, likes, title } = data;
@@ -21,6 +20,11 @@ export function mediaFactory(data) {
     mediaItem.setAttribute('role', 'button')
     mediaItem.setAttribute('aria-haspopup', 'dialog');
     mediaItem.setAttribute('aria-label', 'Ouvrir lightbox');
+    // mediaItem.addEventListener('keydown', (e) => {
+    //   if (e.key === 'Enter') {
+    //     launchLightbox(index)
+    //   }
+    // })
 
     let imageOrVideo
     if (video) {

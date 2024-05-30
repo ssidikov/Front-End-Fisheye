@@ -162,9 +162,9 @@ export function launchLightbox(index) {
   
   const lightboxModel = lightboxFactory(mediaLightBox, photographerData)
   const getLightboxDOM = lightboxModel.getLightboxDOM()
-  // const lightboxModel = lightboxModel(mediaLightBox, photographerData)
-  // const getLightboxDOM = lightboxModel.getLightboxDOM()
   lightbox.appendChild(getLightboxDOM);
+
+  document.addEventListener('keydown', handleLightboxKeyNavigation);
 };
 
 export function next () {
@@ -193,21 +193,9 @@ export function closeLightbox() {
   body.style.overflow = 'auto'
   lightbox.style.display = 'none'
   lightbox.setAttribute('aria-hidden', 'true')
+
+  document.removeEventListener('keydown', handleLightboxKeyNavigation);
 }
-
-// export function dropdown() {
-//   const dropdown = document.querySelector('.sorting__dropdown')
-//   const dropdownButton = document.querySelector('.dropdown__button');
-//   const dropdownItems = document.querySelectorAll('.dropdown__item');
-//   dropdown.classList.toggle('active')
-//   if (dropdown.classList.contains('active')) {
-//     dropdownButton.setAttribute('aria-expanded', 'true')
-
-//     dropdownItems.forEach(item => {
-//       item.setAttribute('tabindex', '0');
-//     });
-//   }
-// }
 
 export function dropdown() {
   const dropdown = document.querySelector('.sorting__dropdown');
@@ -232,6 +220,22 @@ export function dropdown() {
     });
   }
 }
+
+
+
+// Lightbox navigation with the keyboard
+function handleLightboxKeyNavigation(event) {
+  if (event.key === 'ArrowLeft') {
+    previous();
+  } else if (event.key === 'ArrowRight') {
+    next();
+  } else if (event.key === 'Escape') {
+    closeLightbox();
+    
+  }
+}
+
+
 
 
 getPhotographerId()
