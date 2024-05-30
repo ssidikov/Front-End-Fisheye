@@ -134,6 +134,7 @@ function sortBy(type) {
   const dropdownButton = document.querySelector('#dropdownButton');
   dropdownButton.innerHTML = type + dropdownIcon;
   dropdownButton.addEventListener('click', dropdown);
+  dropdownButton.addEventListener('keydown', handleDropdownKey);
   dropdownButton.setAttribute('aria-expanded', 'false');
   
 
@@ -146,9 +147,25 @@ function sortBy(type) {
       const sortByValue = event.currentTarget.textContent.trim();
       // sort the media by the clicked element
       sortBy(sortByValue);
+      // document.querySelector('.sorting__dropdown').classList.remove('active');
     });
   });
+  // get the dropdown items and add the key event handler
+  dropdownItems.forEach(item => {
+    item.addEventListener('keydown', handleDropdownKey);
+  });
 };
+
+function handleDropdownKey(event) {
+  const sortByValue = event.currentTarget.textContent.trim();
+  const dropdown = document.querySelector('.sorting__dropdown');
+  // const dropdownButton = document.querySelector('#dropdownButton');
+  if (event.key === 'Enter') {
+    sortBy(sortByValue);
+    dropdown.classList.remove('active')
+    dropdown.focus();
+  }
+}
 
 // Lightbox for media
 export function launchLightbox(index) {
@@ -211,6 +228,8 @@ export function dropdown() {
     dropdownItems.forEach(item => {
       item.setAttribute('tabindex', '0');
     });
+
+    dropdown.addEventListener('focusout', handlerDropdownFocusOut);
   } else {
     dropdownButton.setAttribute('aria-expanded', 'false');
     dropdown.setAttribute('aria-hidden', 'true');
@@ -218,9 +237,20 @@ export function dropdown() {
     dropdownItems.forEach(item => {
       item.setAttribute('tabindex', '-1');
     });
+    dropdown.removeEventListener('focusout', handlerDropdownFocusOut);
   }
 }
 
+function handlerDropdownFocusOut(event) {
+  const dropdown = document.querySelector('.sorting__dropdown');
+  const dropdownButton = document.querySelector('.dropdown__button');
+
+  if (!dropdown.contains(event.relatedTarget)) {
+    dropdown.classList.remove('active');
+    dropdown.setAttribute('aria-hidden', 'true');
+    dropdownButton.setAttribute('aria-expanded', 'false');
+  }
+}
 
 
 // Lightbox navigation with the keyboard
@@ -231,7 +261,7 @@ function handleLightboxKeyNavigation(event) {
     next();
   } else if (event.key === 'Escape') {
     closeLightbox();
-    
+
   }
 }
 
