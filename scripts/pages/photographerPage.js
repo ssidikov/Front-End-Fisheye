@@ -167,11 +167,16 @@ function handleDropdownKey(event) {
   }
 }
 
+let lastFocusedElement;
+
 // Lightbox for media
 export function launchLightbox(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
   const photographerData = localStorage.getItem('photographerData');
   const mediaLightBox = media[index];
+
+  // Save the currently focused element
+  lastFocusedElement = document.activeElement;
 
   localStorage.setItem('currentMedia', index)
 
@@ -182,6 +187,9 @@ export function launchLightbox(index) {
   lightbox.appendChild(getLightboxDOM);
   // document.querySelector('lightbox__viewer').focus()
   document.addEventListener('keydown', handleLightboxKeyNavigation);
+
+  // Set focus to the lightbox
+  // lightbox.querySelector('.lightbox-content').focus();
 };
 
 export function next () {
@@ -212,6 +220,9 @@ export function closeLightbox() {
   lightbox.setAttribute('aria-hidden', 'true')
 
   document.removeEventListener('keydown', handleLightboxKeyNavigation);
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
 }
 
 export function dropdown() {
