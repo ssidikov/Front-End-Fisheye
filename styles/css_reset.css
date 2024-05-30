@@ -8,12 +8,12 @@
     scroll-behavior: smooth;
 }
 
-ul[role='list'], ol[role='list'] {
-    list-style: none;
-}
-
 html:focus-within {
     scroll-behavior: smooth;
+}
+
+ul[role='list'], ol[role='list'] {
+    list-style: none;
 }
 
 a:not([class]) {

@@ -39,7 +39,6 @@
   color: var(--secondary-color);
   font-size: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
   font-weight: 400;
-  margin: 0;
 }
 
 .description__location {
@@ -94,10 +93,9 @@
 }
 
 .dropdown__button {
-  color: white;
+  color: var(--white);
   padding: 20px 25px;
-  border-bottom: 1px solid white;
-  /* font-size: 18px; */
+  border-bottom: 1px solid var(--white);
   font-size: clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem);
   font-weight: 700;
   text-decoration: none;
@@ -121,7 +119,6 @@
   border-radius: 5px;
   margin: 0;
   padding: 0;
-
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -152,7 +149,7 @@
 
 .media {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 30px 95px;
   margin-top: 60px;
   width: 100%;
@@ -325,14 +322,13 @@
 }
 
 .contact-modal__inner {
-  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 50%;
   background-color: var(--hover-color);
   border-radius: 5px;
   padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin: auto;
   border: none;
   animation: fadeIn 0.5s, scaleIn 0.5s;
@@ -475,7 +471,7 @@
   }
 
   .media {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 
   .fees {
@@ -484,19 +480,12 @@
 
   .fees__inner {
     font-size: clamp(1rem, 2vw, 1.5rem);
-  }
-
-  .fees__right {
-    margin-left: 10px;
+    height: 30px;
   }
 
   .fees__icon-like {
     width: 18px;
     height: 20px;
-  }
-
-  .fees__inner {
-    height: 30px;
   }
 
   .lightbox {
@@ -517,11 +506,6 @@
   .photograph__main {
     padding: 0 3vw;
   }
-
-  /* .contact-modal__close {
-    width: 36px;
-    height: 36px;
-  } */
 
   .form__input {
     height: 48px;
@@ -552,7 +536,6 @@
   }
 
   .media {
-    display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0 20px 35px;
@@ -618,12 +601,6 @@
   .contact-modal {
     padding: 10px;
   }
-
-  /* 
-  .contact-modal__close {
-    width: 32px;
-    height: 32px;
-  } */
 
   .contact-modal__inner {
     width: 100%;
