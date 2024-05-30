@@ -1,4 +1,12 @@
 import { launchLightbox, addLikes } from '../pages/photographerPage.js';
+// import { addEnterKeyListener } from '../utils/utils.js';
+
+
+function addEnterKeyListener(e) {
+  if(e.key === 'Enter') {
+    e.target.click()
+  }
+}
 
 export function mediaFactory(data) {
 
@@ -20,11 +28,7 @@ export function mediaFactory(data) {
     mediaItem.setAttribute('role', 'button')
     mediaItem.setAttribute('aria-haspopup', 'dialog');
     mediaItem.setAttribute('aria-label', 'Ouvrir lightbox');
-    // mediaItem.addEventListener('keydown', (e) => {
-    //   if (e.key === 'Enter') {
-    //     launchLightbox(index)
-    //   }
-    // })
+    mediaItem.addEventListener('keydown', addEnterKeyListener)
 
     let imageOrVideo
     if (video) {

@@ -8,6 +8,8 @@ const email = document.getElementById('email');
 const message = document.getElementById('message');
 const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/;
 
+let lastFocusedElement;
+
 function checkName() {
   const trimmedName = firstName.value.trim();
   if (trimmedName.length < 2) {
@@ -118,6 +120,8 @@ function handleContactFormKey(e) {
 }
 
 export function openContactForm() {
+  lastFocusedElement = document.activeElement;
+
   body.style.overflow = 'hidden';
   modal.style.display = 'block';
   modal.setAttribute('aria-hidden', 'false');
@@ -131,5 +135,7 @@ export function closeContactForm() {
   body.style.overflow = 'auto';
   modal.style.display = 'none';
   modal.setAttribute('aria-hidden', 'true');
-  // contactButton.focus();
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
 };

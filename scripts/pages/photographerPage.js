@@ -180,7 +180,7 @@ export function launchLightbox(index) {
   const lightboxModel = lightboxFactory(mediaLightBox, photographerData)
   const getLightboxDOM = lightboxModel.getLightboxDOM()
   lightbox.appendChild(getLightboxDOM);
-
+  document.querySelector('lightbox__viewer').focus()
   document.addEventListener('keydown', handleLightboxKeyNavigation);
 };
 
