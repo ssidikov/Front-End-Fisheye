@@ -14,25 +14,27 @@ const NamePattern = /^(?![\s])[a-zA-ZÀ-ÖØ-öø-ÿ]+(?:[\s-][a-zA-ZÀ-ÖØ-ö�
 
 // This function sets the error message
 function setErrorMessage(element, message) {
-  element.parentElement.setAttribute('data-error-visible', 'true');
-  element.parentElement.setAttribute('data-error', message);
+  const parent = element.parentElement;
+  parent.setAttribute('data-error-visible', 'true');
+  parent.setAttribute('data-error', message);
   element.classList.add('error');
 }
 
 // This function removes the error message
 function removeErrorMessage(element) {
-  element.parentElement.setAttribute('data-error-visible', 'false');
-  element.parentElement.removeAttribute('data-error');
+  const parent = element.parentElement;
+  parent.setAttribute('data-error-visible', 'false');
+  parent.removeAttribute('data-error');
   element.classList.remove('error');
 }
 
 // This function checks the name
 function checkName() {
-  const trimmedName = firstName.value.trim();
-  if (trimmedName.length < 2) {
+  const name = firstName.value.trim();
+  if (name.length < 2) {
     setErrorMessage(firstName, 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
     return false;
-  } else if (!trimmedName.match(NamePattern)) {
+  } else if (!NamePattern.test(name)) {
     setErrorMessage(firstName, 'Veuillez saisir uniquement des lettres.');
     return false;
   } else {
@@ -43,11 +45,11 @@ function checkName() {
 
 // This function checks the last name
 function checkLastName() {
-  const trimmedLastName = lastName.value.trim();
-  if (trimmedLastName.length < 2) {
+  const name = lastName.value.trim();
+  if (name.length < 2) {
     setErrorMessage(lastName, 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
     return false;
-  } else if (!trimmedLastName.match(NamePattern)) {
+  } else if (!NamePattern.test(name)) {
     setErrorMessage(lastName, 'Veuillez saisir uniquement des lettres.');
     return false;
   } else {
@@ -58,8 +60,9 @@ function checkLastName() {
 
 // This function checks the email
 function checkEmail() {
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2}/; // Regex
-  if (!email.value.match(emailPattern)) {
+  const EmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2}/; // Regex
+  const emailValue = email.value.trim();
+  if (!EmailPattern.test(emailValue)) {
     setErrorMessage(email, 'Veuillez entrer une adresse e-mail valide.');
     return false;
   } else {
@@ -80,7 +83,7 @@ function checkMessage() {
   }
 }
 
-// This function validates the form fields
+// Event Listeners for Real-time Validation
 function formFieldValidation(element, method, event) {
   element.addEventListener(event, method);
 }
@@ -91,8 +94,8 @@ formFieldValidation(lastName, checkLastName, 'focusout');
 formFieldValidation(email, checkEmail, 'focusout');
 formFieldValidation(message, checkMessage, 'focusout');
 
-// This function checks all the fields
-function forAllFieldsValidation() {
+// This function checks all the fields if they are valid
+function validateForm() {
   const isNameValid = checkName();
   const isLastNameValid = checkLastName();
   const isEmailValid = checkEmail();
@@ -101,17 +104,13 @@ function forAllFieldsValidation() {
   return isNameValid && isLastNameValid && isEmailValid && isMessageValid;
 }
 
-// Submit the form
-form.addEventListener('submit', (e) =>{
+// Form Submission
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (forAllFieldsValidation()) {
-    const firstNameValue = firstName.value;
-    const lastNameValue = lastName.value;
-    const emailValue = email.value;
-    const messageValue = message.value;
-    console.log(`Prénom: ${firstNameValue}\nNom: ${lastNameValue}\nEmail: ${emailValue}\nMessage: ${messageValue}`);
+  if (validateForm()) {
+    console.log(`Prénom: ${firstName.value}\nNom: ${lastName.value}\nEmail: ${email.value}\nMessage: ${message.value}`);
     closeContactForm();
-    document.querySelector('form[name="contact"]').reset();
+    form.reset();
   }
 });
 
@@ -127,13 +126,12 @@ function handleContactFormKey(e) {
   }
 }
 
-// Store the last focused element
+// Store the last focused element for modal open/close functions
 let lastFocusedElement;
 
 // Open the modal window and store the last focused element
 export function openContactForm() {
   lastFocusedElement = document.activeElement;
-
   body.style.overflow = 'hidden';
   modal.style.display = 'block';
   modal.setAttribute('aria-hidden', 'false');
