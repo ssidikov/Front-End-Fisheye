@@ -63,25 +63,17 @@ export function lightboxFactory(data) {
     const lightboxMediaContainer = document.createElement('div');
     lightboxMediaContainer.classList.add('lightbox__media-container');
 
-    let imageOrVideo
-    if (video) {
-      imageOrVideo = document.createElement('video')
-      imageOrVideo.classList.add('lightbox__media')
-      imageOrVideo.setAttribute('src', mediaSrc)
-      imageOrVideo.setAttribute('alt', title)
-      imageOrVideo.setAttribute('controls', 'controls')
-      imageOrVideo.setAttribute('autoplay', 'autoplay')
-      imageOrVideo.setAttribute('loop', 'loop')
-      imageOrVideo.setAttribute('muted', 'muted')
-      imageOrVideo.setAttribute('type', 'video/mp4');
-      imageOrVideo.setAttribute('tabindex', '0')
-    } else {
-      imageOrVideo = document.createElement('img')
-      imageOrVideo.classList.add('lightbox__media')
-      imageOrVideo.setAttribute('src', mediaSrc)
-      imageOrVideo.setAttribute('alt', title)
-      imageOrVideo.setAttribute('tabindex', '0')
-    }
+    const mediaElement = video ? document.createElement('video') : document.createElement('img');
+      mediaElement.setAttribute('src', mediaSrc);
+      mediaElement.classList.add('lightbox__media');
+      mediaElement.setAttribute('alt', title);
+      mediaElement.setAttribute('tabindex', '0');
+      if (video) {
+        mediaElement.setAttribute('controls', 'controls');
+        mediaElement.setAttribute('autoplay', 'autoplay');
+        mediaElement.setAttribute('loop', 'loop');
+        mediaElement.setAttribute('muted', 'muted');
+      }
 
     // Description of the media
     const lightboxDescription = document.createElement('h3')
@@ -92,7 +84,7 @@ export function lightboxFactory(data) {
     navigateLeft.appendChild(btnLeftArrow)
     navigateRight.appendChild(rightArrow)
     lightboxClose.appendChild(btnCloseLightbox)
-    lightboxMediaContainer.appendChild(imageOrVideo)
+    lightboxMediaContainer.appendChild(mediaElement)
     lightboxMediaContainer.appendChild(lightboxDescription)
     lightboxViewer.appendChild(lightboxClose)
     lightboxViewer.appendChild(navigateLeft)
