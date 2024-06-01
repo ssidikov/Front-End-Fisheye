@@ -83,17 +83,20 @@ async function displayMediaData(media) {
 
 export function addLikes(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
-  const mediaBase = JSON.parse(localStorage.getItem('mediasBase'));
   const photo = document.getElementById(`${media[index].id}`);
-  let result = media[index].likes + 1
+  let likedMedia = JSON.parse(localStorage.getItem('likedMedia')) || {};
 
-  if (result > mediaBase[index].likes + 1) {
-    result = media[index].likes - 1
+  if (likedMedia[media[index].id]) {
+    media[index].likes -= 1;
+    delete likedMedia[media[index].id];
+  } else {
+    media[index].likes += 1;
+    likedMedia[media[index].id] = true;
   }
-  
-  media[index].likes = result
+
+  localStorage.setItem('likedMedia', JSON.stringify(likedMedia));
   localStorage.setItem('medias', JSON.stringify(media));
-  photo.querySelector('.like__number').textContent = result;
+  photo.querySelector('.like__number').textContent = media[index].likes;
   totalLikes();
   return media[index].likes;
 }
@@ -130,7 +133,7 @@ function sortBy(type) {
   };
   // save the sorted media in the local storage
   localStorage.setItem('medias', JSON.stringify(mediaSorted));
-  localStorage.setItem('mediasBase', JSON.stringify(mediaSorted));
+  // localStorage.setItem('mediasBase', JSON.stringify(mediaSorted));
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
@@ -150,7 +153,6 @@ function sortBy(type) {
       const sortByValue = event.currentTarget.textContent.trim();
       // sort the media by the clicked element
       sortBy(sortByValue);
-      // document.querySelector('.sorting__dropdown').classList.remove('active');
     });
   });
   // get the dropdown items and add the key event handler
@@ -162,7 +164,6 @@ function sortBy(type) {
 function handleDropdownKey(event) {
   const sortByValue = event.currentTarget.textContent.trim();
   const dropdown = document.querySelector('.sorting__dropdown');
-  // const dropdownButton = document.querySelector('#dropdownButton');
   if (event.key === 'Enter') {
     sortBy(sortByValue);
     dropdown.classList.remove('active')
@@ -188,11 +189,7 @@ export function launchLightbox(index) {
   const lightboxModel = lightboxFactory(mediaLightBox, photographerData)
   const getLightboxDOM = lightboxModel.getLightboxDOM()
   lightbox.appendChild(getLightboxDOM);
-  // document.querySelector('lightbox__viewer').focus()
   document.addEventListener('keydown', handleLightboxKeyNavigation);
-
-  // Set focus to the lightbox
-  // lightbox.querySelector('.lightbox-content').focus();
 };
 
 export function next () {
