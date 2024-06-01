@@ -7,50 +7,104 @@ import { lightboxFactory } from '../factories/lightboxFactory.js';
 const lightbox = document.querySelector('#lightbox')
 
 // The function getData() fetches the data of the photographers from the JSON file.
-async function getData() {
+// async function getData() {
+//   try {
+//     const response = await fetch('./data/photographers.json');
+//     if (!response.ok) {
+//       throw new Error('HTTP error ' + response.status);
+//     }
+//     return await response.json();
+//   } catch (error) {
+//     console.error('Error fetching media data: ', error);
+//     throw error;
+//   }
+// };
+
+// // Get the id of the photographer from the URL
+// async function getPhotographerId() {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const photographerId = urlParams.get('id');
+ 
+//   let photographerData;
+
+//   if (photographerId) {
+//     const { media } = await getData();
+//     const { photographers } = await getData();
+
+//     const photographerSorted = photographers.find(
+//       (a) => parseInt(a.id) === parseInt(photographerId)
+//     )
+
+//     displayPhotographersData(photographerSorted)
+
+//     photographerData = photographerSorted.name
+//     photographerData = photographerData.split('')
+//     localStorage.setItem('photographerData', photographerData)
+
+//     const mediaSorted = media.filter(
+//       (photos) => parseInt(photos.photographerId) === parseInt(photographerId)
+//     )
+//     localStorage.setItem('medias', JSON.stringify(mediaSorted))
+//     displayMediaData(mediaSorted, photographerData)
+//     sortBy('Popularité')
+//   } else {
+//       alert('No photographer ID provided');
+//   }
+// }
+
+function getPhotographerId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
+}
+
+async function getPhotographerData(photographerId) {
   try {
     const response = await fetch('./data/photographers.json');
-    if (!response.ok) {
-      throw new Error('HTTP error ' + response.status);
-    }
-    return await response.json();
+    const { photographers } = await response.json();
+    return photographers.find(photographer => photographer.id == photographerId);
   } catch (error) {
+    console.error('Error fetching photographer data: ', error);
+    throw error;
+  }
+};
+
+async function getMediaData(photographerId) {
+  try {
+    const response = await fetch('./data/photographers.json');
+    const { media } = await response.json();
+    return media.filter(media => media.photographerId == photographerId);
+  }
+  catch (error) {
     console.error('Error fetching media data: ', error);
     throw error;
   }
 };
 
-// Get the id of the photographer from the URL
-async function getPhotographerId() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const photographerId = urlParams.get('id');
- 
-  let photographerData;
+// async function getPhotographerPageData(photographerId) {
+//   const photographerData = await getPhotographerData(photographerId);
+//   const mediaData = await getMediaData(photographerId);
+//   return { photographerData, mediaData };
+// }
 
-  if (photographerId) {
-    const { media } = await getData();
-    const { photographers } = await getData();
+async function init() {
+  const photographerData = await getPhotographerData(getPhotographerId());
+  if (photographerData) {
+    localStorage.setItem('photographerData', JSON.stringify(photographerData));
+    displayPhotographersData(photographerData);
+  }
 
-    const photographerSorted = photographers.find(
-      (a) => parseInt(a.id) === parseInt(photographerId)
-    )
-
-    displayPhotographersData(photographerSorted)
-
-    photographerData = photographerSorted.name
-    photographerData = photographerData.split('')
-    localStorage.setItem('photographerData', photographerData)
-
-    const mediaSorted = media.filter(
-      (photos) => parseInt(photos.photographerId) === parseInt(photographerId)
-    )
-    localStorage.setItem('medias', JSON.stringify(mediaSorted))
-    displayMediaData(mediaSorted, photographerData)
-    sortBy('Popularité')
+  const mediaData = await getMediaData(getPhotographerId());
+  if (mediaData) {
+    localStorage.setItem('medias', JSON.stringify(mediaData));
+    displayMediaData(mediaData);
+    sortBy('Popularité');
   } else {
-      alert('No photographer ID provided');
+    alert('No photographer ID provided');
   }
 }
+
+init();
+
 
 // Display information about the photographer in header
 async function displayPhotographersData(photographerData) {
@@ -127,7 +181,6 @@ function sortBy(type) {
   };
   // save the sorted media in the local storage
   localStorage.setItem('medias', JSON.stringify(mediaSorted));
-  localStorage.setItem('mediasBase', JSON.stringify(mediaSorted));
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
