@@ -82,20 +82,20 @@ async function displayMediaData(media) {
 }
 
 export function addLikes(index) {
-  const media = JSON.parse(localStorage.getItem('medias'))
-  const mediasBase = JSON.parse(localStorage.getItem('mediasBase'))
-  const photo = document.getElementById(`${media[index].id}`)
+  const media = JSON.parse(localStorage.getItem('medias'));
+  const mediaBase = JSON.parse(localStorage.getItem('mediasBase'));
+  const photo = document.getElementById(`${media[index].id}`);
   let result = media[index].likes + 1
 
-  if (result > mediasBase[index].likes + 1) {
+  if (result > mediaBase[index].likes + 1) {
     result = media[index].likes - 1
   }
   
   media[index].likes = result
-  localStorage.setItem('medias', JSON.stringify(media))
-  photo.querySelector('.like__number').textContent = result
-  totalLikes()
-  return media[index].likes
+  localStorage.setItem('medias', JSON.stringify(media));
+  photo.querySelector('.like__number').textContent = result;
+  totalLikes();
+  return media[index].likes;
 }
 
 // Total number of likes
@@ -130,6 +130,7 @@ function sortBy(type) {
   };
   // save the sorted media in the local storage
   localStorage.setItem('medias', JSON.stringify(mediaSorted));
+  localStorage.setItem('mediasBase', JSON.stringify(mediaSorted));
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
