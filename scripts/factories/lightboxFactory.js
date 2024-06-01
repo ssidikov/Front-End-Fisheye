@@ -72,7 +72,6 @@ export function lightboxFactory(data) {
         mediaElement.setAttribute('controls', 'controls');
         mediaElement.setAttribute('autoplay', 'autoplay');
         mediaElement.setAttribute('loop', 'loop');
-        mediaElement.setAttribute('muted', 'muted');
       }
 
     // Description of the media

@@ -46,6 +46,7 @@
   font-size: clamp(1.25rem, 1.1786rem + 0.3571vw, 1.5rem);
   text-align: left;
   font-weight: 400;
+  font-style: inherit;
 }
 
 .description__tagline {

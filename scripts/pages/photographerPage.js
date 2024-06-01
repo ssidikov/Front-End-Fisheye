@@ -6,52 +6,7 @@ import { lightboxFactory } from '../factories/lightboxFactory.js';
 
 const lightbox = document.querySelector('#lightbox')
 
-// The function getData() fetches the data of the photographers from the JSON file.
-// async function getData() {
-//   try {
-//     const response = await fetch('./data/photographers.json');
-//     if (!response.ok) {
-//       throw new Error('HTTP error ' + response.status);
-//     }
-//     return await response.json();
-//   } catch (error) {
-//     console.error('Error fetching media data: ', error);
-//     throw error;
-//   }
-// };
-
-// // Get the id of the photographer from the URL
-// async function getPhotographerId() {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const photographerId = urlParams.get('id');
- 
-//   let photographerData;
-
-//   if (photographerId) {
-//     const { media } = await getData();
-//     const { photographers } = await getData();
-
-//     const photographerSorted = photographers.find(
-//       (a) => parseInt(a.id) === parseInt(photographerId)
-//     )
-
-//     displayPhotographersData(photographerSorted)
-
-//     photographerData = photographerSorted.name
-//     photographerData = photographerData.split('')
-//     localStorage.setItem('photographerData', photographerData)
-
-//     const mediaSorted = media.filter(
-//       (photos) => parseInt(photos.photographerId) === parseInt(photographerId)
-//     )
-//     localStorage.setItem('medias', JSON.stringify(mediaSorted))
-//     displayMediaData(mediaSorted, photographerData)
-//     sortBy('Popularité')
-//   } else {
-//       alert('No photographer ID provided');
-//   }
-// }
-
+// Get the photographer ID from the URL
 function getPhotographerId() {
   const params = new URLSearchParams(window.location.search);
   return params.get('id');
@@ -79,12 +34,6 @@ async function getMediaData(photographerId) {
     throw error;
   }
 };
-
-// async function getPhotographerPageData(photographerId) {
-//   const photographerData = await getPhotographerData(photographerId);
-//   const mediaData = await getMediaData(photographerId);
-//   return { photographerData, mediaData };
-// }
 
 async function init() {
   const photographerData = await getPhotographerData(getPhotographerId());

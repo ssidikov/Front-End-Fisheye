@@ -40,7 +40,6 @@ export function mediaFactory(data) {
     if (video) {
       mediaElement.setAttribute('poster', posterImg);
       mediaElement.setAttribute('preload', 'metadata');
-      mediaElement.setAttribute('muted', 'muted');
     };
 
     const cardDescription = document.createElement('div');
@@ -53,7 +52,7 @@ export function mediaFactory(data) {
     const cardLike = document.createElement('div');
     cardLike.classList.add('card__like');
 
-    const likeNumber = document.createElement('p');
+    const likeNumber = document.createElement('span');
     likeNumber.classList.add('like__number');
     likeNumber.textContent = likes;
 

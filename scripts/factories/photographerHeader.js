@@ -22,7 +22,7 @@ export function photographerHeader(data) {
     nameElement.setAttribute('tabindex', '0');
 
     // Location of the photographer
-    const locationElement = document.createElement('p');
+    const locationElement = document.createElement('address');
     locationElement.textContent = location;
     locationElement.classList.add('description__location');
     locationElement.setAttribute('aria-label', 'Localisation de ' + name + ':' + location);
