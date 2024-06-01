@@ -15,7 +15,7 @@ async function getData() {
     }
     return await response.json();
   } catch (error) {
-    console.error('fetch error: ', error);
+    console.error('Error fetching media data: ', error);
     throw error;
   }
 };

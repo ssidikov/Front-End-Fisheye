@@ -22,7 +22,7 @@ export function photographerHeader(data) {
     nameElement.setAttribute('tabindex', '0');
 
     // Location of the photographer
-    const locationElement = document.createElement('h2');
+    const locationElement = document.createElement('p');
     locationElement.textContent = location;
     locationElement.classList.add('description__location');
     locationElement.setAttribute('aria-label', 'Localisation de ' + name + ':' + location);
@@ -61,15 +61,6 @@ export function photographerHeader(data) {
     img.classList.add('photograph-header__image');
 
     // Add the elements to the article
-    // const sectionPhotographHeader = document.querySelector('.photograph-header');
-    // sectionPhotographHeader.appendChild(article);
-    // article.appendChild(nameElement);
-    // article.appendChild(locationElement);
-    // article.appendChild(taglineElement);
-    // sectionPhotographHeader.appendChild(contactButton);
-    // sectionPhotographHeader.appendChild(img);
-
-    // Add the elements to the article
     article.appendChild(nameElement);
     article.appendChild(locationElement);
     article.appendChild(taglineElement);
@@ -79,8 +70,7 @@ export function photographerHeader(data) {
     sectionPhotographHeader.appendChild(article);
     sectionPhotographHeader.appendChild(contactButton);
     sectionPhotographHeader.appendChild(img);
-    
-    // document.querySelector('.contact-modal__title').textContent = `Contactez-moi ${name}`;
+
     
     return article;
 
