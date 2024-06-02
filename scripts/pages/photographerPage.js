@@ -179,7 +179,7 @@ function handleDropdownKey(event) {
 }
 
 // Store the last focused element for the lightbox open/close functions
-let lastFocusedElement;
+let currentMediaElement;
 
 // Launch the lightbox
 export function launchLightbox(index) {
@@ -188,7 +188,11 @@ export function launchLightbox(index) {
   const mediaLightBox = media[index];
 
   // Save the currently focused element
-  lastFocusedElement = document.activeElement;
+  currentMediaElement = document.getElementById(`${media[index].id}`);
+
+  if (currentMediaElement) {
+    currentMediaElement.setAttribute('tabindex', '-1');
+  }
 
   localStorage.setItem('currentMedia', index)
 
@@ -228,9 +232,7 @@ export function closeLightbox() {
   lightbox.style.display = 'none';
   lightbox.setAttribute('aria-hidden', 'true');
   document.removeEventListener('keydown', handleLightboxKeyNavigation);
-  if (lastFocusedElement) {
-    lastFocusedElement.focus();
-  }
+  currentMediaElement.focus();
 };
 
 // Dropdown
