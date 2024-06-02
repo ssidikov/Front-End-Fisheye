@@ -39,6 +39,8 @@ async function getMediaData(photographerId) {
 
 // Initialize the page
 async function init() {
+  // Clear liked media data from local storage
+  localStorage.removeItem('likedMedia');
   const photographerData = await getPhotographerData(getPhotographerId());
   if (photographerData) {
     localStorage.setItem('photographerData', JSON.stringify(photographerData));
