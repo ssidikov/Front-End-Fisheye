@@ -141,7 +141,7 @@ export function openContactForm() {
 
 // Close the modal window and set focus on the last focused element
 export function closeContactForm() {
-  body.style.overflow = 'auto';
+  body.removeAttribute('style');
   modal.style.display = 'none';
   modal.setAttribute('aria-hidden', 'true');
   if (lastFocusedElement) {

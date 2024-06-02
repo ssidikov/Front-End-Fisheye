@@ -46,7 +46,7 @@ export function lightboxFactory(data) {
     const btnLeftArrow = document.createElement('i');
     btnLeftArrow.classList.add('lightbox__control--icon', 'fa-solid', 'fa-angle-left');
     btnLeftArrow.setAttribute('aria-hidden', 'true');
-    btnLeftArrow.setAttribute('alt', 'Photo précédente');
+    btnLeftArrow.setAttribute('aria-label', 'Photo précédente');
 
     // Right arrow to navigate to the next media
     const navigateRight = document.createElement('button');
@@ -77,26 +77,26 @@ export function lightboxFactory(data) {
       }
 
     // Description of the media
-    const lightboxDescription = document.createElement('h3')
-    lightboxDescription.classList.add('lightbox__description')
-    lightboxDescription.textContent = title
+    const lightboxDescription = document.createElement('h3');
+    lightboxDescription.classList.add('lightbox__description');
+    lightboxDescription.textContent = title;
 
     // Add the elements to the lightbox
-    navigateLeft.appendChild(btnLeftArrow)
-    navigateRight.appendChild(rightArrow)
-    lightboxClose.appendChild(btnCloseLightbox)
-    lightboxMediaContainer.appendChild(mediaElement)
-    lightboxMediaContainer.appendChild(lightboxDescription)
-    lightboxViewer.appendChild(lightboxClose)
-    lightboxViewer.appendChild(navigateLeft)
-    lightboxViewer.appendChild(lightboxMediaContainer)
-    lightboxViewer.appendChild(navigateRight)
-    lightbox.appendChild(lightboxViewer)
+    navigateLeft.appendChild(btnLeftArrow);
+    navigateRight.appendChild(rightArrow);
+    lightboxClose.appendChild(btnCloseLightbox);
+    lightboxMediaContainer.appendChild(mediaElement);
+    lightboxMediaContainer.appendChild(lightboxDescription);
+    lightboxViewer.appendChild(lightboxClose);
+    lightboxViewer.appendChild(navigateLeft);
+    lightboxViewer.appendChild(lightboxMediaContainer);
+    lightboxViewer.appendChild(navigateRight);
+    lightbox.appendChild(lightboxViewer);
 
-    return lightboxViewer
+    return lightboxViewer;
 
   }
 
-  return { getLightboxDOM }
+  return { getLightboxDOM };
 
 }

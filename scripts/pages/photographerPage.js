@@ -4,14 +4,15 @@ import { photographerHeader } from '../factories/photographerHeader.js';
 import { mediaFactory } from '../factories/mediaFactory.js';
 import { lightboxFactory } from '../factories/lightboxFactory.js';
 
-const lightbox = document.querySelector('#lightbox')
+const lightbox = document.querySelector('#lightbox');
 
 // Get the photographer ID from the URL
 function getPhotographerId() {
   const params = new URLSearchParams(window.location.search);
   return params.get('id');
-}
+};
 
+// Fetch the photographer data from the JSON file
 async function getPhotographerData(photographerId) {
   try {
     const response = await fetch('./data/photographers.json');
@@ -23,6 +24,7 @@ async function getPhotographerData(photographerId) {
   }
 };
 
+// Fetch the media data from the JSON file
 async function getMediaData(photographerId) {
   try {
     const response = await fetch('./data/photographers.json');
@@ -35,6 +37,7 @@ async function getMediaData(photographerId) {
   }
 };
 
+// Initialize the page
 async function init() {
   const photographerData = await getPhotographerData(getPhotographerId());
   if (photographerData) {
@@ -50,37 +53,39 @@ async function init() {
   } else {
     alert('No photographer ID provided');
   }
-}
+};
 
 init();
 
 
 // Display information about the photographer in header
 async function displayPhotographersData(photographerData) {
-  const header = document.querySelector('.photograph-header')
-  const headerModel = photographerHeader(photographerData)
-  const getUserCardDOM = headerModel.getHeaderCardDOM()
-  header.appendChild(getUserCardDOM)
+  const header = document.querySelector('.photograph-header');
+  const headerModel = photographerHeader(photographerData);
+  const getUserCardDOM = headerModel.getHeaderCardDOM();
+  header.appendChild(getUserCardDOM);
   photographerFees(photographerData);
 }
 
 // Display the photographer's fees
 async function photographerFees(photographerData) {
-  const feesHTML = document.querySelector('.fees__right')
-  const fees = photographerData.price
-  feesHTML.textContent = `${fees}€ / jour`
+  const feesHTML = document.querySelector('.fees__right');
+  const fees = photographerData.price;
+  feesHTML.textContent = `${fees}€ / jour`;
 }
 
+// Display the media data
 async function displayMediaData(media) {
-  const mediaContainer = document.querySelector('.media')
+  const mediaContainer = document.querySelector('.media');
   media.forEach((media, index) => {
-    const mediaModel = mediaFactory(media)
-    const getMediaCardDOM = mediaModel.getMediaCardDOM(index)
-    mediaContainer.appendChild(getMediaCardDOM)
+    const mediaModel = mediaFactory(media);
+    const getMediaCardDOM = mediaModel.getMediaCardDOM(index);
+    mediaContainer.appendChild(getMediaCardDOM);
   })
-  totalLikes()
-}
+  totalLikes();
+};
 
+// Add likes to the media
 export function addLikes(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
   const photo = document.getElementById(`${media[index].id}`);
@@ -99,17 +104,17 @@ export function addLikes(index) {
   photo.querySelector('.like__number').textContent = media[index].likes;
   totalLikes();
   return media[index].likes;
-}
+};
 
 // Total number of likes
 function totalLikes() {
   // get the media data from local storage
-  const media = JSON.parse(localStorage.getItem('medias'))
+  const media = JSON.parse(localStorage.getItem('medias'));
   // calculate the total number of likes
-  const totalLikes = media.reduce((sum, mediaItem) => sum + mediaItem.likes, 0)
+  const totalLikes = media.reduce((sum, mediaItem) => sum + mediaItem.likes, 0);
   // display the total number of likes
-  document.getElementById('totalLikes').textContent = totalLikes
-}
+  document.getElementById('totalLikes').textContent = totalLikes;
+};
 
 // Sort media by popularity, date, or title
 
@@ -125,15 +130,14 @@ function sortBy(type) {
   mediaContainer.replaceChildren();
   // sort the media by the type
   if (type === 'Popularité') {
-    mediaSorted = media.sort((a, b) => b.likes - a.likes)
+    mediaSorted = media.sort((a, b) => b.likes - a.likes);
   } else if (type === 'Date') {
-    mediaSorted = media.sort((a, b) => new Date(b.date) - new Date(a.date))
+    mediaSorted = media.sort((a, b) => new Date(b.date) - new Date(a.date));
   } else if (type === 'Titre') {
-    mediaSorted = media.sort((a, b) => a.title.localeCompare(b.title))
+    mediaSorted = media.sort((a, b) => a.title.localeCompare(b.title));
   };
   // save the sorted media in the local storage
   localStorage.setItem('medias', JSON.stringify(mediaSorted));
-  // localStorage.setItem('mediasBase', JSON.stringify(mediaSorted));
   displayMediaData(mediaSorted, photographerData);
   // display the type of sorting
   document.querySelector('.sorting__dropdown').classList.remove('active');
@@ -161,19 +165,21 @@ function sortBy(type) {
   });
 };
 
+// Handle the key event for the dropdown
 function handleDropdownKey(event) {
   const sortByValue = event.currentTarget.textContent.trim();
   const dropdown = document.querySelector('.sorting__dropdown');
   if (event.key === 'Enter') {
     sortBy(sortByValue);
-    dropdown.classList.remove('active')
+    dropdown.classList.remove('active');
     dropdown.focus();
   }
 }
 
+// Store the last focused element for the lightbox open/close functions
 let lastFocusedElement;
 
-// Lightbox for media
+// Launch the lightbox
 export function launchLightbox(index) {
   const media = JSON.parse(localStorage.getItem('medias'));
   const photographerData = localStorage.getItem('photographerData');
@@ -186,45 +192,46 @@ export function launchLightbox(index) {
 
   lightbox.replaceChildren();
   
-  const lightboxModel = lightboxFactory(mediaLightBox, photographerData)
-  const getLightboxDOM = lightboxModel.getLightboxDOM()
+  const lightboxModel = lightboxFactory(mediaLightBox, photographerData);
+  const getLightboxDOM = lightboxModel.getLightboxDOM();
   lightbox.appendChild(getLightboxDOM);
   document.addEventListener('keydown', handleLightboxKeyNavigation);
 };
 
+// lightbox right arrow
 export function next () {
-  let nextPhoto = parseInt(localStorage.getItem('currentMedia')) + 1
-  localStorage.setItem('currentMedia', nextPhoto)
-  const media = JSON.parse(localStorage.getItem('medias'))
+  let nextPhoto = parseInt(localStorage.getItem('currentMedia')) + 1;
+  localStorage.setItem('currentMedia', nextPhoto);
+  const media = JSON.parse(localStorage.getItem('medias'));
   if (nextPhoto >= media.length) {
     nextPhoto = 0
   }
-  launchLightbox(nextPhoto)
-}
+  launchLightbox(nextPhoto);
+};
 // lightbox left arrow
 export function previous () {
-  let previousPhoto = parseInt(localStorage.getItem('currentMedia')) - 1
-  localStorage.setItem('currentMedia', previousPhoto)
-  const medias = JSON.parse(localStorage.getItem('medias'))
+  let previousPhoto = parseInt(localStorage.getItem('currentMedia')) - 1;
+  localStorage.setItem('currentMedia', previousPhoto);
+  const medias = JSON.parse(localStorage.getItem('medias'));
   if (previousPhoto < 0) {
     previousPhoto = medias.length - 1
   }
-  launchLightbox(previousPhoto)
+  launchLightbox(previousPhoto);
 }
 
-
+// Close the lightbox
 export function closeLightbox() {
-  const body = document.querySelector('body')
-  body.style.overflow = 'auto'
-  lightbox.style.display = 'none'
-  lightbox.setAttribute('aria-hidden', 'true')
-
+  const body = document.querySelector('body');
+  body.removeAttribute('style');
+  lightbox.style.display = 'none';
+  lightbox.setAttribute('aria-hidden', 'true');
   document.removeEventListener('keydown', handleLightboxKeyNavigation);
   if (lastFocusedElement) {
     lastFocusedElement.focus();
   }
-}
+};
 
+// Dropdown
 export function dropdown() {
   const dropdown = document.querySelector('.sorting__dropdown');
   const dropdownButton = document.querySelector('.dropdown__button');
@@ -252,6 +259,7 @@ export function dropdown() {
   }
 }
 
+// Handle the focus out event for the dropdown
 function handlerDropdownFocusOut(event) {
   const dropdown = document.querySelector('.sorting__dropdown');
   const dropdownButton = document.querySelector('.dropdown__button');
@@ -282,4 +290,4 @@ function handleLightboxKeyNavigation(event) {
 
 
 
-getPhotographerId()
+getPhotographerId();
