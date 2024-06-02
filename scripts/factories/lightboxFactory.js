@@ -26,6 +26,7 @@ export function lightboxFactory(data) {
     // Close the lightbox
     const lightboxClose = document.createElement('button');
     lightboxClose.classList.add('lightbox__close', 'lightbox__control');
+    lightboxClose.setAttribute('id', 'close-lightbox')
     lightboxClose.setAttribute('aria-label', 'Fermer la visionneuse');
     lightboxClose.setAttribute('tabindex', '0');
     lightboxClose.addEventListener('click', closeLightbox);
@@ -50,6 +51,7 @@ export function lightboxFactory(data) {
     // Right arrow to navigate to the next media
     const navigateRight = document.createElement('button');
     navigateRight.classList.add('lightbox__control');
+    navigateRight.setAttribute('id', 'navigate-right')
     navigateRight.setAttribute('aria-label', 'Photo suivante');
     navigateRight.setAttribute('tabindex', '0');
     navigateRight.addEventListener('click', next);

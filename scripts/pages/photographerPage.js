@@ -270,9 +270,12 @@ function handleLightboxKeyNavigation(event) {
     previous();
   } else if (event.key === 'ArrowRight') {
     next();
+    event.preventDefault();
   } else if (event.key === 'Escape') {
     closeLightbox();
-
+  } else if (event.key === 'Tab' && document.activeElement === document.querySelector('#navigate-right')) {
+    event.preventDefault(); // Prevent the default action (focus transition)
+    document.getElementById('close-lightbox').focus(); // Install the focus on the closing button Lightbox
   }
 }
 
