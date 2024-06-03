@@ -1,8 +1,17 @@
 {
   "devDependencies": {
-    "@eslint/js": "^9.3.0",
-    "eslint": "^9.3.0",
+    "@eslint/js": "^9.4.0",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.2.0",
     "globals": "^15.3.0"
+  },
+  "eslintConfig": {
+  "globals": {
+    "window": true
+  }
   },
   "name": "front-end-fisheye",
   "version": "1.0.0",
@@ -88,7 +97,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "http-server",
-    "lint": "eslint ./scripts/**/*.js"
+    "lint": "eslint scripts/**/*.js"
   },
   "repository": {
     "type": "git",
