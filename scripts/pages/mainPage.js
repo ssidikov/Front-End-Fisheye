@@ -3,9 +3,7 @@ import { createUserCard } from "../templates/photographerCard.js";
 
 // Fetching the data of the photographers from the JSON file
 async function getPhotographers() {
-  return await fetch("./data/photographers.json").then((response) =>
-    response.json()
-  );
+  return await fetch("./data/photographers.json").then((response) => response.json());
 }
 
 // Displaying the photographers on the main page

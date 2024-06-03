@@ -24,20 +24,14 @@ export function photographerHeader(data) {
     const locationElement = document.createElement("address");
     locationElement.textContent = location;
     locationElement.classList.add("description__location");
-    locationElement.setAttribute(
-      "aria-label",
-      "Localisation de " + name + ":" + location
-    );
+    locationElement.setAttribute("aria-label", "Localisation de " + name + ":" + location);
     locationElement.setAttribute("tabindex", "0");
 
     // Tagline of the photographer
     const taglineElement = document.createElement("p");
     taglineElement.textContent = tagline;
     taglineElement.classList.add("description__tagline");
-    taglineElement.setAttribute(
-      "aria-label",
-      "Slogan de " + name + ":" + tagline
-    );
+    taglineElement.setAttribute("aria-label", "Slogan de " + name + ":" + tagline);
     taglineElement.setAttribute("tabindex", "0");
 
     // Contact button
@@ -51,7 +45,7 @@ export function photographerHeader(data) {
 
     // contact name of the photographer in the modal
     const contactName = document.querySelector(".contact-modal__title");
-    contactName.insertAdjacentHTML("beforeend", ` ${name}`);
+    contactName.textContent += ` ${name}`;
 
     // close the modal
     const closeModal = document.querySelector(".contact-modal__close");
@@ -71,8 +65,7 @@ export function photographerHeader(data) {
     article.appendChild(taglineElement);
 
     // Append the elements to the section Photograph Header
-    const sectionPhotographHeader =
-      document.querySelector(".photograph-header");
+    const sectionPhotographHeader = document.querySelector(".photograph-header");
     sectionPhotographHeader.appendChild(article);
     sectionPhotographHeader.appendChild(contactButton);
     sectionPhotographHeader.appendChild(img);

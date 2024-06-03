@@ -17,9 +17,7 @@ async function getPhotographerData(photographerId) {
   try {
     const response = await fetch("./data/photographers.json");
     const { photographers } = await response.json();
-    return photographers.find(
-      (photographer) => photographer.id == photographerId
-    );
+    return photographers.find((photographer) => photographer.id == photographerId);
   } catch (error) {
     console.error("Error fetching photographer data: ", error);
     throw error;

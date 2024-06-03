@@ -19,7 +19,6 @@ export function createUserCard(data) {
     const article = document.createElement("article");
     article.classList.add("photographer");
     article.addEventListener("click", redirectToPhotographerPage);
-    article.focus();
 
     // Photo of the photographer
     const img = document.createElement("img");
@@ -54,19 +53,13 @@ export function createUserCard(data) {
     const taglineElement = document.createElement("p");
     taglineElement.textContent = tagline;
     taglineElement.classList.add("photographer__tagline");
-    taglineElement.setAttribute(
-      "aria-label",
-      "Slogan de " + name + ":" + tagline
-    );
+    taglineElement.setAttribute("aria-label", "Slogan de " + name + ":" + tagline);
 
     // Price of the photographer
     const priceElement = document.createElement("p");
     priceElement.textContent = price + "€/jour";
     priceElement.classList.add("photographer__price");
-    priceElement.setAttribute(
-      "aria-label",
-      "Tarif de " + name + ":" + price + "€ par jour"
-    );
+    priceElement.setAttribute("aria-label", "Tarif de " + name + ":" + price + "€ par jour");
 
     // Add the elements to the card
     idElement.appendChild(img);

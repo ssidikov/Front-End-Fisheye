@@ -32,11 +32,7 @@ export function lightboxFactory(data) {
     lightboxClose.addEventListener("click", closeLightbox);
 
     const btnCloseLightbox = document.createElement("i");
-    btnCloseLightbox.classList.add(
-      "lightbox__control--icon",
-      "fa-solid",
-      "fa-xmark"
-    );
+    btnCloseLightbox.classList.add("lightbox__control--icon", "fa-solid", "fa-xmark");
     btnCloseLightbox.setAttribute("aria-hidden", "true");
     btnCloseLightbox.setAttribute("aria-label", "Fermer la visionneuse");
 
@@ -48,11 +44,7 @@ export function lightboxFactory(data) {
     navigateLeft.addEventListener("click", previous);
 
     const btnLeftArrow = document.createElement("i");
-    btnLeftArrow.classList.add(
-      "lightbox__control--icon",
-      "fa-solid",
-      "fa-angle-left"
-    );
+    btnLeftArrow.classList.add("lightbox__control--icon", "fa-solid", "fa-angle-left");
     btnLeftArrow.setAttribute("aria-hidden", "true");
     btnLeftArrow.setAttribute("aria-label", "Photo précédente");
 
@@ -65,11 +57,7 @@ export function lightboxFactory(data) {
     navigateRight.addEventListener("click", next);
 
     const rightArrow = document.createElement("i");
-    rightArrow.classList.add(
-      "lightbox__control--icon",
-      "fa-solid",
-      "fa-angle-right"
-    );
+    rightArrow.classList.add("lightbox__control--icon", "fa-solid", "fa-angle-right");
     rightArrow.setAttribute("aria-hidden", "true");
     rightArrow.setAttribute("aria-label", "Photo suivante");
 
@@ -77,9 +65,7 @@ export function lightboxFactory(data) {
     const lightboxMediaContainer = document.createElement("div");
     lightboxMediaContainer.classList.add("lightbox__media-container");
 
-    const mediaElement = video
-      ? document.createElement("video")
-      : document.createElement("img");
+    const mediaElement = video ? document.createElement("video") : document.createElement("img");
     mediaElement.setAttribute("src", mediaSrc);
     mediaElement.classList.add("lightbox__media");
     mediaElement.setAttribute("alt", title);

@@ -32,10 +32,7 @@ function removeErrorMessage(element) {
 function checkName() {
   const name = firstName.value.trim();
   if (name.length < 2) {
-    setErrorMessage(
-      firstName,
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
-    );
+    setErrorMessage(firstName, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     return false;
   } else if (!NamePattern.test(name)) {
     setErrorMessage(firstName, "Veuillez saisir uniquement des lettres.");
@@ -50,10 +47,7 @@ function checkName() {
 function checkLastName() {
   const name = lastName.value.trim();
   if (name.length < 2) {
-    setErrorMessage(
-      lastName,
-      "Veuillez entrer 2 caractères ou plus pour le champ du nom."
-    );
+    setErrorMessage(lastName, "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     return false;
   } else if (!NamePattern.test(name)) {
     setErrorMessage(lastName, "Veuillez saisir uniquement des lettres.");

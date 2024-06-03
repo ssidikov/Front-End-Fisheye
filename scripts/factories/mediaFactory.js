@@ -32,9 +32,7 @@ export function mediaFactory(data) {
     mediaItem.addEventListener("keydown", addEnterKeyListener);
 
     // Create the media element (image or video)
-    const mediaElement = video
-      ? document.createElement("video")
-      : document.createElement("img");
+    const mediaElement = video ? document.createElement("video") : document.createElement("img");
     mediaElement.setAttribute("src", mediaSrc);
     mediaElement.classList.add("card__media");
     mediaElement.setAttribute("alt", `${title}, vue rapprochée`);
