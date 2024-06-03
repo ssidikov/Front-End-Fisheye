@@ -9,9 +9,9 @@
     "globals": "^15.3.0"
   },
   "eslintConfig": {
-  "globals": {
-    "window": true
-  }
+    "globals": {
+      "window": true
+    }
   },
   "name": "front-end-fisheye",
   "version": "1.0.0",
