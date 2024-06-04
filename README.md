@@ -43,4 +43,29 @@ Ce projet consiste en la création d'une application web pour présenter les pho
 
 ## Technologies utilisées:
 
-HTML / CSS / JS / JSON
+# HTML / CSS / JS / JSON
+
+# JavaScript (ES6+)
+
+● Manipulation du DOM pour la création dynamique de contenu.
+
+● Gestion des événements pour l'interaction utilisateur.
+
+● Récupération et traitement des données JSON.
+
+● Utilisation des fonctionnalités modernes telles que async/await, la déstructuration et les fonctions fléchées.
+
+# Local Storage
+
+● Stockage des données de session telles que les médias aimés pour une interaction fluide sans rechargement de page.
+
+# JSON
+
+● Stockage des données des photographes et des médias.
+● Récupération des données via fetch API.
+
+# ARIA (Accessible Rich Internet Applications)
+
+● Amélioration de l'accessibilité en ajoutant des attributs ARIA aux éléments interactifs pour les utilisateurs de technologies d'assistance.
+
+Ces technologies permettent de créer une application web performante, interactive et accessible, offrant une expérience utilisateur de haute qualité.
